@@ -4,6 +4,7 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted
 
+import requests
 
 
 class ActionTwoStageFallback(Action):
@@ -31,11 +32,19 @@ class ActionFAQ(Action):
         query = next(tracker.get_latest_entity_values("query"), None)
 
         if query != None:
-            resText = f"Here is the information regarding [{query}]."
-        else:
-            resText = f"I can't find the information of it. Can you try something else?"
+            # api_endpoint = f'https://fyp-server-b4yk.onrender.com/api/knowledges/search?search={query}'
+            api_endpoint = f'http://localhost:3210/api/knowledges/search?search={query}'
+            res = requests.get(api_endpoint)
 
-        dispatcher.utter_message(text=resText)
+            results = res.json().get('data');
+
+            if len(results) > 0:
+                dispatcher.utter_message(text=f"Here is the information regarding {query}.\n")
+                dispatcher.utter_message(text=results[0]['description'])
+            else:
+                dispatcher.utter_message(text=f"I can't find the information of it. Can you try something else?")
+        else:
+             dispatcher.utter_message(text=f"I can't get it. Can you rephrase it?")
 
         return []
 

@@ -1,34 +1,30 @@
 version: "3.1"
 
 stories:
+  - story: greeting path
+    steps:
+      - intent: greet
+      - action: utter_greet
 
-- story: greeting path
-  steps:
-  - intent: greet
-  - action: utter_greet
+  - story: ask for services path
+    steps:
+      - intent: ask_services
+      - action: utter_services_included
+      - action: utter_did_that_help
+      - intent: affirm
+      - action: utter_glad
 
-- story: ask for services path
-  steps:
-  - intent: ask_services
-  - action: utter_services_included
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_glad
+  - story: did not help path
+    steps:
+      - intent: deny
+      - action: utter_sorry
 
-- story: did not help path
-  steps:
-  - intent: deny
-  - action: utter_sorry
+  - story: thank you path
+    steps:
+      - intent: thank
+      - action: utter_welcome
 
-- story : thank you path
-  steps:
-  - intent: thank
-  - action: utter_welcome
-
-- story: query path
-  steps:
-    - intent: faq
-    - action: action_faq
-    - action: utter_did_that_help
-    - intent: affirm
-    - action: utter_glad
+  - story: query path
+    steps:
+      - intent: faq
+      - action: action_faq
