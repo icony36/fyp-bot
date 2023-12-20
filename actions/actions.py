@@ -6,8 +6,8 @@ from rasa_sdk.events import UserUtteranceReverted, SlotSet
 
 import requests
 
-# api_endpoint = "http://localhost:3210/"
-api_endpoint = "https://fyp-server-b4yk.onrender.com/"
+api_endpoint = "http://localhost:3210/"
+# api_endpoint = "https://fyp-server-b4yk.onrender.com/"
 
 class ActionDefaultFallback(Action):
 
