@@ -1,155 +1,191 @@
-version: "3.1"
-
+version: '3.1'
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - thank
-  - bot_challenge
-  - ask_services
-  - faq
-
+- affirm
+- ask_services
+- bot_challenge
+- create_ticket
+- deny
+- get_knowledges
+- goodbye
+- greet
+- nlu_fallback
+- stop
+- thank
 entities:
-  - query
-
+- knowledge
+slots:
+  ticket_subject:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: ticket_form
+        requested_slot: ticket_subject
+  ticket_detail:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: ticket_form
+        requested_slot: ticket_detail
+forms:
+  ticket_form:
+    required_slots:
+    - ticket_subject
+    - ticket_detail
 responses:
   utter_greet:
-  - text: "Hello! I'm your student service bot. How can I assist you today?"
-  - text: "Hey there! I'm here to help you with any student-related queries."
-  - text: "Hi! Welcome to the student service bot. What do you need help with?"
-  - text: "Good day! I'm the student service bot. How may I be of assistance?"
-  - text: "Greetings! I'm your friendly student service bot. How can I support you?"
-  - text: "Hi there! Need help with anything as a student? I'm here for you!"
-  - text: "Hey! I'm the student service bot. What can I do for you today?"
-  - text: "Good to see you! I'm the student service bot. How can I assist you?"
-  - text: "Welcome! I'm your go-to student service bot. What's on your mind?"
-  - text: "Hey! I'm here as your student service bot. How can I assist you today?"
-
+  - text: Hello! I'm your student service bot. How can I assist you today?
+  - text: Hey there! I'm here to help you with any student-related queries.
+  - text: Hi! Welcome to the student service bot. What do you need help with?
+  - text: Good day! I'm the student service bot. How may I be of assistance?
+  - text: Greetings! I'm your friendly student service bot. How can I support you?
+  - text: Hi there! Need help with anything as a student? I'm here for you!
+  - text: Hey! I'm the student service bot. What can I do for you today?
+  - text: Good to see you! I'm the student service bot. How can I assist you?
+  - text: Welcome! I'm your go-to student service bot. What's on your mind?
+  - text: Hey! I'm here as your student service bot. How can I assist you today?
   utter_did_that_help:
-  - text: "Did that help you?"
-  - text: "Was that helpful for you?"
-  - text: "Did that assist you in any way?"
-  - text: "Was that what you needed?"
-  - text: "Did that answer your question?"
-  - text: "Was that useful for you?"
-  - text: "Did that resolve your concern?"
-  - text: "Was that what you were looking for?"
-  - text: "Did that support you?"
-  - text: "Was that response helpful?"
-  - text: "Did that address your issue?"
-  - text: "Did that provide the solution you were after?"
-
+  - text: Did that help you?
+  - text: Was that helpful for you?
+  - text: Did that assist you in any way?
+  - text: Was that what you needed?
+  - text: Did that answer your question?
+  - text: Was that useful for you?
+  - text: Did that resolve your concern?
+  - text: Was that what you were looking for?
+  - text: Did that support you?
+  - text: Was that response helpful?
+  - text: Did that address your issue?
+  - text: Did that provide the solution you were after?
   utter_glad:
-  - text: "Glad that I can help!"
-  - text: "Happy to assist!"
-  - text: "Glad I could be of help!"
-  - text: "I'm pleased to have assisted!"
-  - text: "Happy that I could help!"
-  - text: "I'm delighted I could assist!"
-  - text: "Happy that I was helpful!"
-  - text: "Glad to lend a hand!"
-  - text: "Pleased to have supported you!"
-  - text: "Glad to be of aid!"
-  - text: "Happy to be of service!"
-  - text: "Thrilled that I could help!"
-  - text: "Glad to offer my support!"
-  - text: "Happy to have supported you!"
-
+  - text: Glad that I can help!
+  - text: Happy to assist!
+  - text: Glad I could be of help!
+  - text: I'm pleased to have assisted!
+  - text: Happy that I could help!
+  - text: I'm delighted I could assist!
+  - text: Happy that I was helpful!
+  - text: Glad to lend a hand!
+  - text: Pleased to have supported you!
+  - text: Glad to be of aid!
+  - text: Happy to be of service!
+  - text: Thrilled that I could help!
+  - text: Glad to offer my support!
+  - text: Happy to have supported you!
   utter_sorry:
-  - text: "Sorry I can't help you."
-  - text: "Apologies, I'm unable to assist."
-  - text: "Regrettably, I can't aid you."
-  - text: "I'm sorry, I can't provide assistance."
-  - text: "Unfortunately, I can't offer help."
-  - text: "Apologies, I'm not able to assist you."
-  - text: "Sorry, I'm unable to support you."
-  - text: "I regret to inform you I can't help."
-  - text: "I'm sorry, I'm unable to provide guidance."
-  - text: "Regrettably, I can't offer support."
-  - text: "Apologies, I can't give you the help you need."
-  - text: "Unfortunately, I'm not capable of providing assistance."
-  - text: "Sorry, I can't assist you with that."
-  - text: "Apologies, I'm not equipped to help."
-  - text: "Unfortunately, I'm not in a position to assist."
-  - text: "I'm sorry, I'm not able to give support."
-  - text: "Regrettably, I can't offer the help you need."
-  - text: "Sorry, I'm not capable of assisting."
-  - text: "Apologies, I can't support you with that."
-  - text: "Unfortunately, I can't be of assistance."
-
+  - text: Sorry I can't help you.
+  - text: Apologies, I'm unable to assist.
+  - text: Regrettably, I can't aid you.
+  - text: I'm sorry, I can't provide assistance.
+  - text: Unfortunately, I can't offer help.
+  - text: Apologies, I'm not able to assist you.
+  - text: Sorry, I'm unable to support you.
+  - text: I regret to inform you I can't help.
+  - text: I'm sorry, I'm unable to provide guidance.
+  - text: Regrettably, I can't offer support.
+  - text: Apologies, I can't give you the help you need.
+  - text: Unfortunately, I'm not capable of providing assistance.
+  - text: Sorry, I can't assist you with that.
+  - text: Apologies, I'm not equipped to help.
+  - text: Unfortunately, I'm not in a position to assist.
+  - text: I'm sorry, I'm not able to give support.
+  - text: Regrettably, I can't offer the help you need.
+  - text: Sorry, I'm not capable of assisting.
+  - text: Apologies, I can't support you with that.
+  - text: Unfortunately, I can't be of assistance.
   utter_welcome:
-  - text: "You're welcome!"
-  - text: "Welcome!"
-  - text: "You're always welcome!"
-  - text: "Glad to help!"
-  - text: "Always here to assist!"
-  - text: "You're most welcome!"
-  - text: "Happy to help!"
-  - text: "My pleasure!"
-  - text: "No problem at all!"
-  - text: "Always at your service!"
-  - text: "It's my pleasure to assist you!"
-  - text: "Glad to be of help!"
-
+  - text: You're welcome!
+  - text: Welcome!
+  - text: You're always welcome!
+  - text: Glad to help!
+  - text: Always here to assist!
+  - text: You're most welcome!
+  - text: Happy to help!
+  - text: My pleasure!
+  - text: No problem at all!
+  - text: Always at your service!
+  - text: It's my pleasure to assist you!
+  - text: Glad to be of help!
   utter_goodbye:
-  - text: "Bye"
-  - text: "Goodbye"
-  - text: "Catch you later"
-  - text: "See you soon"
-  - text: "Take care"
-  - text: "Farewell"
-  - text: "See you next time"
-  - text: "Bye-bye"
-
+  - text: Bye
+  - text: Goodbye
+  - text: Catch you later
+  - text: See you soon
+  - text: Take care
+  - text: Farewell
+  - text: See you next time
+  - text: Bye-bye
   utter_iamabot:
-  - text: "I am a chatbot. I'm here to provide information, answer questions, and assist with a wide range of topics to the best of my abilities. If you have any questions or need assistance, feel free to ask!"
-  - text: "I am a chatbot. I'm here to provide information and assist with a variety of inquiries to the best of my ability. How can I help you today?"
-  - text: "I am a chatbot. I'm here to help and provide information to the best of my ability. If you have any questions, feel free to ask!"
-
-  utter_ask_rephrase:
-  - text: "I am sorry, I did not quite understand thant. Could you rephrase it?"
-  - text: "Sorry, didn't get that. Can you rephrase?"
-  - text: "I'm lost, can you say it differently?"
-  - text: "Didn't catch that, mind rephrasing?"
-  - text: "Huh? Could you rephrase, please?"
-  - text: "Sorry, can you rephrase that?"
-  - text: "Didn't understand, try rephrasing?"
-  - text: "Can you say that in another way, please?"
-  - text: "Didn't quite get it, rephrase?"
-  - text: "Didn't follow, can you rephrase that?"
-  - text: "Say that again differently, please?"
-  - text: "Not clear, can you rephrase that?"
-  - text: "Can you explain that differently?"
-  - text: "Didn't catch, please rephrase?"
-  - text: "Lost me there, rephrase, please?"
-  - text: "Didn't get it, rephrase that for me?"
-  - text: "Say that in a different way, please?"
-
+  - text: I am a chatbot. I'm here to provide information, answer questions, and assist with a wide range of topics to the best of my abilities. If you have any questions or need assistance, feel free to ask!
+  - text: I am a chatbot. I'm here to provide information and assist with a variety of inquiries to the best of my ability. How can I help you today?
+  - text: I am a chatbot. I'm here to help and provide information to the best of my ability. If you have any questions, feel free to ask!
+  utter_rephrase:
+  - text: I am sorry, I did not quite understand thant. Could you rephrase it?
+  - text: Sorry, didn't get that. Can you rephrase?
+  - text: I'm lost, can you say it differently?
+  - text: Didn't catch that, mind rephrasing?
+  - text: Huh? Could you rephrase, please?
+  - text: Sorry, can you rephrase that?
+  - text: Didn't understand, try rephrasing?
+  - text: Can you say that in another way, please?
+  - text: Didn't quite get it, rephrase?
+  - text: Didn't follow, can you rephrase that?
+  - text: Say that again differently, please?
+  - text: Not clear, can you rephrase that?
+  - text: Can you explain that differently?
+  - text: Didn't catch, please rephrase?
+  - text: Lost me there, rephrase, please?
+  - text: Didn't get it, rephrase that for me?
+  - text: Say that in a different way, please?
   utter_default_fallback:
-  - text: "Sorry I can't help you with that. You can ask me something related to academic guidance, enrollment support, or counseling."
-  - text: "Sorry, I'm not able to assist with that. Feel free to ask about academic guidance, enrollment support, or counseling."
-  - text: "My apologies, I can't help with that. Ask me anything about academic guidance, enrollment support, or counseling."
-  - text: "I'm afraid I can't assist with that. You can inquire about academic guidance, enrollment support, or counseling."
-  - text: "I'm not equipped to help with that. Feel free to ask about academic guidance, enrollment support, or counseling instead."
-  - text: "Unfortunately, I can't assist with that. You may ask me about academic guidance, enrollment support, or counseling."
-  - text: "I'm not programmed to handle that. Ask me something related to academic guidance, enrollment support, or counseling."
-  - text: "I'm sorry, that's beyond my capabilities. Ask about academic guidance, enrollment support, or counseling for assistance."
-  - text: "Sorry, that's not something I can assist with. Inquire about academic guidance, enrollment support, or counseling instead."
-  - text: "Apologies, I'm unable to help with that. Ask me about academic guidance, enrollment support, or counseling for assistance."
-  - text: "I'm not sure how to assist with that. Ask about academic guidance, enrollment support, or counseling instead."
-
+  - text: Sorry I can't help you with that. You can ask me something related to academic guidance, enrollment support, or counseling.
+  - text: Sorry, I'm not able to assist with that. Feel free to ask about academic guidance, enrollment support, or counseling.
+  - text: My apologies, I can't help with that. Ask me anything about academic guidance, enrollment support, or counseling.
+  - text: I'm afraid I can't assist with that. You can inquire about academic guidance, enrollment support, or counseling.
+  - text: I'm not equipped to help with that. Feel free to ask about academic guidance, enrollment support, or counseling instead.
+  - text: Unfortunately, I can't assist with that. You may ask me about academic guidance, enrollment support, or counseling.
+  - text: I'm not programmed to handle that. Ask me something related to academic guidance, enrollment support, or counseling.
+  - text: I'm sorry, that's beyond my capabilities. Ask about academic guidance, enrollment support, or counseling for assistance.
+  - text: Sorry, that's not something I can assist with. Inquire about academic guidance, enrollment support, or counseling instead.
+  - text: Apologies, I'm unable to help with that. Ask me about academic guidance, enrollment support, or counseling for assistance.
+  - text: I'm not sure how to assist with that. Ask about academic guidance, enrollment support, or counseling instead.
   utter_services_included:
-  - text: "Our included services range from academic guidance, enrollment support, to counseling. How can I assist you further?"
-  - text: "We provide a variety of services including academic support, enrollment guidance, and counseling. What do you need help with today?"
-  - text: "Included in our services are academic advice, enrollment assistance, and counseling. How may I support you?"
-  - text: "Our services encompass academic guidance, enrollment help, and counseling sessions. How can I assist you today?"
-  - text: "We offer a wide range of services from academic support, enrollment guidance to counseling sessions. How can I help you?"
+  - text: Our included services range from academic guidance, enrollment support, to counseling. How can I assist you further?
+  - text: We provide a variety of services including academic support, enrollment guidance, and counseling. What do you need help with today?
+  - text: Included in our services are academic advice, enrollment assistance, and counseling. How may I support you?
+  - text: Our services encompass academic guidance, enrollment help, and counseling sessions. How can I assist you today?
+  - text: We offer a wide range of services from academic support, enrollment guidance to counseling sessions. How can I help you?
+  utter_create_ticket:
+  - text: Do you want to create ticket to ask the staff directly?
+  utter_ask_ticket_subject:
+  - text: Type in your ticket subject.
+  utter_ask_ticket_detail:
+  - text: Type in your ticket message.
+  utter_ticket_info:
+  - text: |
+      This is your ticket:
 
+      Subject: {ticket_subject}
+
+      Details: 
+      {ticket_detail}
+  utter_ticket_confirmation:
+  - text: Do you want to create this ticket?
+  utter_ticket_cancel:
+  - text: The ticket is cancelled. You may ask me to create the ticket again if you changed your mind.
 actions:
-  - action_two_stage_fallback
-  - action_faq
-
+- action_get_knowledges
+- utter_did_that_help
+- utter_create_ticket
+- action_default_fallback
+- action_two_stage_fallback
+- utter_ask_ticket_subject
+- utter_ask_ticket_detail
+- submit_ticket_form
+- cancel_ticket_form
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

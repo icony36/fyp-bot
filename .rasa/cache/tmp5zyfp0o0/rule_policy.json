@@ -1,0 +1,48 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "utter_iamabot",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}, {\"prev_action\": {\"action_name\": \"utter_iamabot\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]": "utter_goodbye",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"greet\"}}]": "utter_greet",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"greet\"}}, {\"prev_action\": {\"action_name\": \"utter_greet\"}, \"user\": {\"intent\": \"greet\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_services\"}}]": "utter_services_included",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_services\"}}, {\"prev_action\": {\"action_name\": \"utter_services_included\"}, \"user\": {\"intent\": \"ask_services\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"thank\"}}]": "utter_welcome",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"thank\"}}, {\"prev_action\": {\"action_name\": \"utter_welcome\"}, \"user\": {\"intent\": \"thank\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]": "action_two_stage_fallback",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}, {\"prev_action\": {\"action_name\": \"action_two_stage_fallback\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [],
+    "rules_for_loop_unhappy_path": {
+      "[{\"prev_action\": {\"action_name\": \"utter_create_ticket\"}}, {\"active_loop\": {\"name\": \"ticket_form\"}, \"prev_action\": {\"action_name\": \"ticket_form\"}, \"slots\": {\"ticket_detail\": [1.0], \"ticket_subject\": [1.0]}, \"user\": {\"intent\": \"deny\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"ticket_form\"}}, {\"active_loop\": {\"name\": \"ticket_form\"}, \"prev_action\": {\"action_name\": \"utter_ticket_info\"}, \"slots\": {\"ticket_detail\": [1.0], \"ticket_subject\": [1.0]}, \"user\": {\"intent\": \"deny\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"utter_ticket_info\"}}, {\"active_loop\": {\"name\": \"ticket_form\"}, \"prev_action\": {\"action_name\": \"utter_ticket_confirmation\"}, \"slots\": {\"ticket_detail\": [1.0], \"ticket_subject\": [1.0]}, \"user\": {\"intent\": \"deny\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"ticket_form\"}, \"prev_action\": {\"action_name\": \"ticket_form\"}, \"slots\": {\"ticket_detail\": [1.0], \"ticket_subject\": [1.0]}, \"user\": {\"intent\": \"create_ticket\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"ticket_form\"}}, {\"active_loop\": {\"name\": \"ticket_form\"}, \"prev_action\": {\"action_name\": \"utter_ticket_info\"}, \"slots\": {\"ticket_detail\": [1.0], \"ticket_subject\": [1.0]}, \"user\": {\"intent\": \"create_ticket\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"utter_ticket_info\"}}, {\"active_loop\": {\"name\": \"ticket_form\"}, \"prev_action\": {\"action_name\": \"utter_ticket_confirmation\"}, \"slots\": {\"ticket_detail\": [1.0], \"ticket_subject\": [1.0]}, \"user\": {\"intent\": \"create_ticket\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"ticket_form\"}, \"prev_action\": {\"action_name\": \"utter_ticket_cancel\"}, \"slots\": {\"ticket_detail\": [1.0], \"ticket_subject\": [1.0]}, \"user\": {\"intent\": \"deny\"}}]": "do_not_predict_loop_action"
+    },
+    "rules_not_in_stories": [
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"thank\"}}]",
+      "handling active loops and forms - ticket_form - action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_services\"}}, {\"prev_action\": {\"action_name\": \"utter_services_included\"}, \"user\": {\"intent\": \"ask_services\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"thank\"}}, {\"prev_action\": {\"action_name\": \"utter_welcome\"}, \"user\": {\"intent\": \"thank\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"greet\"}}]",
+      "handling active loops and forms - ticket_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}, {\"prev_action\": {\"action_name\": \"action_two_stage_fallback\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]",
+      "predicting default action with intent restart",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_services\"}}]",
+      "predicting default action with intent back",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"greet\"}}, {\"prev_action\": {\"action_name\": \"utter_greet\"}, \"user\": {\"intent\": \"greet\"}}]",
+      "predicting default action with intent session_start",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}, {\"prev_action\": {\"action_name\": \"utter_iamabot\"}, \"user\": {\"intent\": \"bot_challenge\"}}]"
+    ]
+  }
+}

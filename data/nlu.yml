@@ -1,5 +1,4 @@
 version: "3.1"
-
 nlu:
   - intent: greet
     examples: |
@@ -52,7 +51,6 @@ nlu:
       - :)
       - yo
       - whatssup
-
   - intent: goodbye
     examples: |
       - cu
@@ -68,7 +66,139 @@ nlu:
       - bb
       - quit
       - close
-
+  - intent: thank
+    examples: |
+      - thx
+      - Thanx a lot
+      - thanks a bunch
+      - Thanks a mill
+      - You're awesome, thanks!
+      - Thank you so much!!
+      - You're a star, thx!
+      - Thankssssssss!
+      - Thaaaaanks
+      - You're amazinggg, thanx
+      - Thank youuuu :)
+      - Much appreciated, thanks!
+      - You rock, thanks
+      - Thanks a bunchhhh
+      - Thank you v much
+      - You're a lifesaver, thx!
+      - Thanksssss a lot
+      - Thanks you're the best!
+      - Thanks a tonnn
+      - Thank youuuu so much!
+      - Thanks for your help ;)
+      - You're awesome, thx
+      - Thank youuuu a million!
+      - Thaaaank you
+      - Thanks a millionnn
+      - Much appreciated, thank you
+      - You're a legend, thanks
+      - You're amazinggg, thank you!
+      - Thankss a lot
+      - You rockkk
+      - Thanks a bunchhhh!
+      - Thankss for your help
+      - Thank youuuu so much!!
+      - Thank youuu, you're the best!
+      - Thaaaank youuu
+      - Thank you a millionnn
+      - Thank youuu so much!!
+      - Thanks a mill ;)
+      - You're a legend, thank you
+      - You're amazinggg, thanks!
+      - Thankssss a lot
+      - You rockkk, thanks
+      - Thank youuuu a bunch!
+      - Thaaaanks for your help
+      - Thank youuuu, much appreciated
+      - ty
+  - intent: affirm
+    examples: |
+      - ya
+      - yes
+      - yeah
+      - sure
+      - absolutely
+      - of course
+      - indeed
+      - yep
+      - definitely
+      - certainly
+      - that's right
+      - okay
+  - intent: deny
+    examples: |
+      - no
+      - nope
+      - nah
+      - not really
+      - I don't think so
+      - definitely not
+      - sorry, I can't
+      - I disagree
+      - negative
+      - I'll pass
+      - not at all
+      - not interested
+      - never
+  - intent: stop
+    examples: |
+      - stop
+      - cancel
+      - quit
+      - end
+      - exit
+      - I want to stop
+      - Please cancel this
+      - Quit this conversation
+      - End it here
+      - Exit now
+  - intent: bot_challenge
+    examples: |
+      - r u a bot?
+      - are you real?
+      - you're not human, right?
+      - am I speaking to a real person?
+      - are u a human?
+      - are you AI?
+      - u a bot?
+      - am I chatting with a person?
+      - are you a person or bot?
+      - am I talking to a real human?
+      - are you a human or machine?
+      - r u human?
+      - u a real person?
+      - am I speaking with a bot?
+      - are you an AI?
+      - u human or bot?
+      - am I talking to a real human or AI?
+      - r u a human or AI?
+      - am I talking to a bot or human?
+      - are you a person or machine?
+      - u a real human?
+      - am I speaking to a human or bot?
+      - r u a real person?
+      - are you human or AI?
+      - am I talking to a human or AI?
+      - r u a person or bot?
+      - are u a real human?
+      - am I speaking with a human or bot?
+      - r u human or machine?
+      - are you a person or AI?
+      - am I chatting with a human or bot?
+      - are u human or machine?
+      - am I talking to a real person or machine?
+      - are you a person or not?
+      - am I speaking to a human or a robot?
+      - r u human or not?
+      - are you a human or not?
+      - u a real person or not?
+      - am I talking to a bot or not?
+      - r u a person or not?
+      - are you a human or a machine?
+      - am I talking to a human or a AI?
   - intent: ask_services
     examples: |
       - What services do you offer?
@@ -128,227 +258,34 @@ nlu:
       - What's offered?
       - Offer help?
       - What's here to assist?
-
-  - intent: thank
+  - intent: get_knowledges
     examples: |
-      - thx
-      - Thanx a lot
-      - thanks a bunch
-      - Thanks a mill
-      - You're awesome, thanks!
-      - Thank you so much!!
-      - You're a star, thx!
-      - Thankssssssss!
-      - Thaaaaanks
-      - You're amazinggg, thanx
-      - Thank youuuu :)
-      - Much appreciated, thanks!
-      - You rock, thanks
-      - Thanks a bunchhhh
-      - Thank you v much
-      - You're a lifesaver, thx!
-      - Thanksssss a lot
-      - Thanks you're the best!
-      - Thanks a tonnn
-      - Thank youuuu so much!
-      - Thanks for your help ;)
-      - You're awesome, thx
-      - Thank youuuu a million!
-      - Thaaaank you
-      - Thanks a millionnn
-      - Much appreciated, thank you
-      - You're a legend, thanks
-      - You're amazinggg, thank you!
-      - Thankss a lot
-      - You rockkk
-      - Thanks a bunchhhh!
-      - Thankss for your help
-      - Thank youuuu so much!!
-      - Thank youuu, you're the best!
-      - Thaaaank youuu
-      - Thank you a millionnn
-      - Thank youuu so much!!
-      - Thanks a mill ;)
-      - You're a legend, thank you
-      - You're amazinggg, thanks!
-      - Thankssss a lot
-      - You rockkk, thanks
-      - Thank youuuu a bunch!
-      - Thaaaanks for your help
-      - Thank youuuu, much appreciated
-      - ty
-
-  - intent: affirm
+      - What are the [library hours](knowledge)?
+      - How can I [access my grades](knowledge)?
+      - Where can I find information about [student housing](knowledge)?
+      - Tell me about the available [scholarships](knowledge).
+      - Can you help with [course registration](knowledge)?
+      - How do I contact the [career services office](knowledge)?
+      - How can I get involved in [student clubs](knowledge)?
+      - Any advice for [financial aid](knowledge)?
+      - Can you guide me on [study abroad programs](knowledge)?
+      - How to apply for [graduation](knowledge)?
+      - What's the [housing application process](knowledge)?
+      - Where can I find [career development resources](knowledge)?
+      - How can I get [campus event updates](knowledge)?
+      - Can you provide info about [internship opportunities](knowledge)?
+      - How to join the [student government](knowledge)?
+      - What are the available [language courses](knowledge)?
+      - How to access [fitness centers](knowledge) on campus?
+      - Tell me about the [public transportation options](knowledge).
+      - Where can I find [faculty office hours](knowledge)
+      - I want to know about [accommodation](knowledge)
+      - Where is the [cafeteria](knowledge)
+      - I need [tech support](knowledge)
+      - I need [tech support](knowledge)
+  - intent: create_ticket
     examples: |
-      - absolutely
-      - sure
-      - that's right
-      - yep
-      - yeah
-      - definitely
-      - OK
-      - absolutely correct
-      - affirmative
-      - for sure
-      - precisely
-      - right
-      - most certainly
-      - indeed it is
-      - without a doubt
-      - definitely yes
-      - that's correct
-      - absolutely right
-      - surely
-      - that's it
-      - absolutely yes
-      - nice
-      - good
-      - cool
-      - great
-      - so good
-      - so cool
-      - so nice
-      - absolutely
-
-  - intent: deny
-    examples: |
-      - No thx
-      - I'm gud
-      - Not intersted
-      - I'll passs
-      - Nop
-      - Not 4 me
-      - Nahh
-      - Not feelin it
-      - Not 2day
-      - I'll declien
-      - I'm ok
-      - I'll refuze
-      - Not my thng
-      - I'm finee
-      - Not this tme
-      - I'll say noo
-      - I'm all set
-      - Not noww
-      - I'll skipp
-      - I'll pass, thanx
-      - Noo, thankss
-      - Not reallyy
-      - I'll declien, thanx
-      - I'm gud, but thanx
-      - Not intersted, thanx
-      - I'm gud, thanx
-      - I'll have to say noo
-      - I'll have to passs
-      - Not for me, thanx
-      - I'll have to declien
-      - Nahh, I'm gud
-      - I'll say noo, thanx
-      - I'm gud, thank u
-      - Not for me, thanx
-      - I'm gud, thank you
-      - Not really, thanx
-      - I'm all set, thanx
-      - I'll passs, thanx
-      - I'll refuze, thanx
-      - Not for me, thanx
-      - I'm gud, thanx
-      - I'm fine, thanx
-      - Nahh, not 2day
-
-  - intent: bot_challenge
-    examples: |
-      - r u a bot?
-      - are you real?
-      - you're not human, right?
-      - am I speaking to a real person?
-      - are u a human?
-      - are you AI?
-      - u a bot?
-      - am I chatting with a person?
-      - are you a person or bot?
-      - am I talking to a real human?
-      - are you a human or machine?
-      - r u human?
-      - u a real person?
-      - am I speaking with a bot?
-      - are you an AI?
-      - u human or bot?
-      - am I talking to a real human or AI?
-      - r u a human or AI?
-      - am I talking to a bot or human?
-      - are you a person or machine?
-      - u a real human?
-      - am I speaking to a human or bot?
-      - r u a real person?
-      - are you human or AI?
-      - am I talking to a human or AI?
-      - r u a person or bot?
-      - are u a real human?
-      - am I speaking with a human or bot?
-      - r u human or machine?
-      - are you a person or AI?
-      - am I chatting with a human or bot?
-      - are u human or machine?
-      - r u a human or AI?
-      - am I talking to a real person or machine?
-      - are you a person or not?
-      - am I speaking to a human or a robot?
-      - r u human or not?
-      - are you a human or not?
-      - u a real person or not?
-      - am I talking to a bot or not?
-      - r u a person or not?
-      - are you a human or a machine?
-      - am I talking to a human or a AI?
-
-  - intent: faq
-    examples: |
-      - What are the [library hours](query)?
-      - How can I [access my grades](query)?
-      - Where can I find information about [student housing](query)?
-      - Tell me about the available [scholarships](query).
-      - Can you help with [course registration](query)?
-      - How do I contact the [career services office](query)?
-      - What's the procedure for [campus parking](query)?
-      - Are there resources for [international students](query)?
-      - How can I get involved in [student clubs](query)?
-      - Any advice for [financial aid](query)?
-      - Where can I find the [academic calendar](query)?
-      - How do I access the [student portal](query)?
-      - Can you assist with [transcript requests](query)?
-      - Tell me about the [health services](query) available.
-      - What's the process for [room reservations](query)?
-      - How can I find [job opportunities](query) on campus?
-      - What is the [career fair schedule](query)?
-      - Tell me about the [tutoring services](query) provided.
-      - How can I access [library databases](query)?
-      - Where can I get [tech support](query) on campus?
-      - What are the available [recreational facilities](query)?
-      - How can I join [student organizations](query)?
-      - What's the policy for [parking permits](query)?
-      - How do I apply for [work-study programs](query)?
-      - Where can I access [campus maps](query)?
-      - Can you guide me on [study abroad programs](query)?
-      - How to apply for [graduation](query)?
-      - What's the [housing application process](query)?
-      - Tell me about the [student dining options](query).
-      - How do I access [disability services](query)?
-      - Where can I find [career development resources](query)?
-      - How can I get [campus event updates](query)?
-      - Can you provide info about [internship opportunities](query)?
-      - How to join the [student government](query)?
-      - What's the process for [applying for scholarships](query)?
-      - Where can I get [counseling services](query) on campus?
-      - How can I book [study rooms](query) in the library?
-      - Can you guide me on [academic advising](query)?
-      - What are the available [language courses](query)?
-      - How to access [fitness centers](query) on campus?
-      - Tell me about the [public transportation options](query).
-      - How can I access [IT support](query) for students?
-      - What's the [bookstore hours](query)?
-      - Where can I find [faculty office hours](query)
-      - I want to know about [accommodation](query)
-      - Where is the [cafeteria](query)
-
-  - intent: query_knowledge_base
+      - I want to create a ticket
+      - I want to talk with the staff
+      - I want to talk with a human
+      - How can I talk to a staff

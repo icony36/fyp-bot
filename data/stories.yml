@@ -1,30 +1,192 @@
 version: "3.1"
 
 stories:
-  - story: greeting path
+  - story: get knowledges path affirm
     steps:
-      - intent: greet
-      - action: utter_greet
-
-  - story: ask for services path
-    steps:
-      - intent: ask_services
-      - action: utter_services_included
+      - intent: get_knowledges
+      - action: action_get_knowledges
       - action: utter_did_that_help
       - intent: affirm
       - action: utter_glad
 
-  - story: did not help path
+  - story: get knowledges path deny create ticket
     steps:
+      - intent: get_knowledges
+      - action: action_get_knowledges
+      - action: utter_did_that_help
+      - intent: deny
+      - action: utter_sorry
+      - action: utter_create_ticket
+      - intent: affirm
+      - action: ticket_form
+      - active_loop: ticket_form
+      - slot_was_set:
+          - requested_slot: ticket_subject
+      - slot_was_set:
+          - ticket_subject: Problem regarding enrollments
+      - slot_was_set:
+          - requested_slot: ticket_detail
+      - slot_was_set:
+          - ticket_detail: I can't enroll in a course.
+      - slot_was_set:
+          - requested_slot: null
+      - active_loop: null
+      - action: utter_ticket_info
+      - action: utter_ticket_confirmation
+      - intent: affirm
+      - action: submit_ticket_form
+
+  - story: get knowledges path deny create ticket deny submit
+    steps:
+      - intent: get_knowledges
+      - action: action_get_knowledges
+      - action: utter_did_that_help
+      - intent: deny
+      - action: utter_sorry
+      - action: utter_create_ticket
+      - intent: affirm
+      - action: ticket_form
+      - active_loop: ticket_form
+      - slot_was_set:
+          - requested_slot: ticket_subject
+      - slot_was_set:
+          - ticket_subject: Problem regarding enrollments
+      - slot_was_set:
+          - requested_slot: ticket_detail
+      - slot_was_set:
+          - ticket_detail: I can't enroll in a course.
+      - slot_was_set:
+          - requested_slot: null
+      - active_loop: null
+      - action: utter_ticket_info
+      - action: utter_ticket_confirmation
+      - or:
+          - intent: stop
+          - intent: deny
+      - action: utter_ticket_cancel
+      - action: cancel_ticket_form
+
+  - story: get knowledges path deny deny ticket
+    steps:
+      - intent: get_knowledges
+      - action: action_get_knowledges
+      - action: utter_did_that_help
+      - intent: deny
+      - action: utter_sorry
+      - action: utter_create_ticket
       - intent: deny
       - action: utter_sorry
 
-  - story: thank you path
-    steps:
-      - intent: thank
-      - action: utter_welcome
+  # - story: get knowledges path
+  #   steps:
+  #     - intent: get_knowledges
+  #     - action: action_get_knowledges
+  #     - action: utter_did_that_help
+  #     - checkpoint: check_knowledge_helped
 
-  - story: query path
+  # - story: knowledge helped affirm
+  #   steps:
+  #     - checkpoint: check_knowledge_helped
+  #     - intent: affirm
+  #     - action: utter_glad
+
+  # - story: knowledge helped deny
+  #   steps:
+  #     - checkpoint: check_knowledge_helped
+  #     - intent: deny
+  #     - action: utter_sorry
+  #     - action: utter_create_ticket
+  #     - checkpoint: check_create_ticket
+
+  # - story: create ticket affirm
+  #   steps:
+  #     - checkpoint: check_create_ticket
+  #     - intent: affirm
+  #     - action: ticket_form
+  #     - active_loop: ticket_form
+  #     - slot_was_set:
+  #         - requested_slot: ticket_subject
+  #     - slot_was_set:
+  #         - ticket_subject: Problem regarding enrollments
+  #     - slot_was_set:
+  #         - requested_slot: ticket_detail
+  #     - slot_was_set:
+  #         - ticket_detail: I can't enroll in a course.
+  #     - slot_was_set:
+  #         - requested_slot: null
+  #     - active_loop: null
+  #     - action: utter_ticket_info
+  #     - action: utter_ticket_confirmation
+  #     - intent: affirm
+  #     - action: submit_ticket_form
+
+  # - story: create ticket deny
+  #   steps:
+  #     - checkpoint: check_create_ticket
+  #     - intent: deny
+  #     - action: utter_sorry
+
+  # - story: create ticket
+  #   steps:
+  #     - intent: create_ticket
+  #     - checkpoint: check_activate_ticket
+
+  - story: create ticket submit
     steps:
-      - intent: faq
-      - action: action_faq
+      - intent: create_ticket
+      - action: ticket_form
+      - active_loop: ticket_form
+      - slot_was_set:
+          - requested_slot: ticket_subject
+      - slot_was_set:
+          - ticket_subject: Problem regarding enrollments
+      - slot_was_set:
+          - requested_slot: ticket_detail
+      - slot_was_set:
+          - ticket_detail: I can't enroll in a course.
+      - slot_was_set:
+          - requested_slot: null
+      - active_loop: null
+      - action: utter_ticket_info
+      - action: utter_ticket_confirmation
+      - intent: affirm
+      - action: submit_ticket_form
+
+  - story: create ticket no submit
+    steps:
+      - intent: create_ticket
+      - action: ticket_form
+      - active_loop: ticket_form
+      - slot_was_set:
+          - requested_slot: ticket_subject
+      - slot_was_set:
+          - ticket_subject: Problem regarding enrollments
+      - slot_was_set:
+          - requested_slot: ticket_detail
+      - slot_was_set:
+          - ticket_detail: I can't enroll in a course.
+      - slot_was_set:
+          - requested_slot: null
+      - active_loop: null
+      - action: utter_ticket_info
+      - action: utter_ticket_confirmation
+      - or:
+          - intent: stop
+          - intent: deny
+      - action: utter_ticket_cancel
+      - action: cancel_ticket_form
+
+  # - story: submit ticket affirm
+  #   steps:
+  #     - checkpoint: check_submit_ticket
+  #     - intent: affirm
+  #     - action: submit_ticket_form
+
+  # - story: submit ticket deny
+  #   steps:
+  #     - checkpoint: check_submit_ticket
+  #     - or:
+  #         - intent: stop
+  #         - intent: deny
+  #     - action: utter_ticket_cancel
+  #     - action: cancel_ticket_form
