@@ -1,13 +1,24 @@
 from typing import Any, Text, Dict, List
+import os
+from dotenv import load_dotenv
+
+from langdetect import detect, detect_langs
+import google.generativeai as genai
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import UserUtteranceReverted, SlotSet
+from rasa_sdk.events import UserUtteranceReverted, SlotSet, FollowupAction
 
 import requests
 
 api_endpoint = "http://localhost:3210/"
 # api_endpoint = "https://fyp-server-b4yk.onrender.com/"
+
+load_dotenv()
+
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+model = genai.GenerativeModel("gemini-pro")
+chat = model.start_chat(history=[])
 
 class ActionDefaultFallback(Action):
 
@@ -17,21 +28,26 @@ class ActionDefaultFallback(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        text = tracker.latest_message['text']
+        
+        if (detect(text) != "en"):
+            dispatcher.utter_message(response="utter_english_only")
+            return [UserUtteranceReverted()]
+        
+        try:
+            reply_text = ""
 
-        dispatcher.utter_message(response="utter_rephrase")
+            responses = chat.send_message(text, stream=True)
 
-        return [UserUtteranceReverted()]
+            for chunk in responses:
+                reply_text += chunk.text
+            
+            dispatcher.utter_message(text=reply_text)
+        except Exception as e:
+            dispatcher.utter_message(response="utter_cant_answer")
+            print(e)
 
-class ActionTwoStageFallback(Action):
-
-    def name(self) -> Text:
-        return "action_two_stage_fallback"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        dispatcher.utter_message(response="utter_rephrase")
 
         return [UserUtteranceReverted()]
 
@@ -59,12 +75,9 @@ class ActionGetKnowLedges(Action):
             else:
                 dispatcher.utter_message(text="I can't find the information of it. Can you try something else?")
         else:
-             dispatcher.utter_message(text="I can't get it. Can you rephrase it?")
-       
+            return [FollowupAction('action_default_fallback')]      
 
         return []
-
-
 
 class SubmitTicketForm(Action):
 

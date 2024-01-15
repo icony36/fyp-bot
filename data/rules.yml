@@ -21,26 +21,26 @@ rules:
       - intent: bot_challenge
       - action: utter_iamabot
 
+  - rule: ask for joke path
+    steps:
+      - intent: ask_joke
+      - action: utter_here_joke
+      - action: utter_joke
+
+  - rule: feeling stess path
+    steps:
+      - intent: feel_stressed
+      - action: utter_overwhelmed
+
   - rule: ask for services path
     steps:
       - intent: ask_services
       - action: utter_services_included
 
-  # - rule: Asked user to rephrase when the message has low confidence
-  #   steps:
-  #     - intent: nlu_fallback
-  #     - action: utter_default_fallback
-
-  # - rule: Handle unknow user inputs
-  #   steps:
-  #    - intent: nlu_fallback
-  #    - action: action_default_fallback
-
-  # - rule: Two stage fallback
-  #   steps:
-  #     - intent: nlu_fallback
-  #     - action: action_two_stage_fallback
-  #     - active_loop: action_two_stage_fallback
+  - rule: Handle unknow user inputs
+    steps:
+      - intent: nlu_fallback
+      - action: action_default_fallback
 
   # - rule: Activate ticket form
   #   steps:

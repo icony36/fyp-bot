@@ -53,7 +53,7 @@ nlu:
       - whatssup
   - intent: goodbye
     examples: |
-      - cu
+      - see you
       - good by
       - cee you later
       - good night
@@ -199,12 +199,48 @@ nlu:
       - r u a person or not?
       - are you a human or a machine?
       - am I talking to a human or a AI?
+  - intent: ask_joke
+    examples: |
+      - Tell me a joke.
+      - I need a joke.
+      - I am sad, tell me a joke.
+      - Joke?
+      - I need joke.
+      - Tell joke, please.
+      - Can you share joke?
+      - Want joke.
+      - I like joke.
+      - Joke, please!
+      - I want to hear joke.
+      - Please tell joke.
+      - Give me joke.
+      - Tell funny story.
+      - Share funny joke.
+      - Joke for me?
+      - Can you joke?
+      - I need funny joke.
+
+  - intent: feel_stressed
+    examples: |
+      - Hi, I’m feeling stressed out
+      - I'm stressed
+      - Feeling overwhelmed
+      - Stress is getting to me
+      - Feeling anxious
+      - I'm under a lot of pressure
+      - It's all too much right now
+      - Feeling tense
+      - I'm really stressed
+      - Feeling a bit frazzled
+      - I'm getting worked up
+      - Feeling strained
+
   - intent: ask_services
     examples: |
+      - How can you help me?
       - What services do you offer?
       - What kind of stuff do you guys do?
       - Can you help me out with something?
-      - What can this service actually do for me?
       - I need some info about what you offer
       - Can you assist me with anything?
       - What exactly does this service cover?
@@ -213,51 +249,7 @@ nlu:
       - I need some help, what do you guys offer?
       - Just wondering, what's your service all about?
       - What's the deal with your service's offerings?
-      - Can you give me a hand with your services?
-      - What's the lowdown on the services here?
-      - Could you fill me in on your services?
-      - What's the scoop on your service's help?
-      - What exactly can I expect from your service?
-      - Can you give me some info on your services?
-      - How can your service be of use to me?
-      - I'm looking for some details on your services
-      - Can you help me out with your services?
-      - Can you clarify your service offerings?
-      - What kind of service help do you provide?
-      - Can you give me a hand with this service?
-      - What's the service all about?
-      - Could you explain the service you provide?
-      - What's up with your service, can you explain?
-      - I'm trying to figure out your service
-      - What kind of services are you into?
-      - Can you help me with your service, what's up?
-      - What's the deal with your service offerings?
-      - Can you assist me with your services?
-      - I need some info about what you do
-      - What's your service all about, can you tell me?
-      - Can you hook me up with some info on your service?
-      - I'm curious, what do you actually do?
-      - Can you give me some details on your services?
-      - What's the word on your service?
-      - Can you help me out with your service stuff?
-      - What's the deal with your service, can you explain?
-      - I'm looking for some info on what you offer
-      - what can I do?
-      - how can you help me?
-      - Can u help me with something?
-      - What assistance can I get?
-      - What help is available here?
-      - Can u assist me?
-      - What can I get from this service?
-      - Any help offered?
-      - Services u offer?
-      - What's available to help?
-      - What u offer?
-      - Services offered?
-      - Can u help?
-      - What's offered?
-      - Offer help?
-      - What's here to assist?
+
   - intent: get_knowledges
     examples: |
       - What are the [library hours](knowledge)?
@@ -282,10 +274,10 @@ nlu:
       - I want to know about [accommodation](knowledge)
       - Where is the [cafeteria](knowledge)
       - I need [tech support](knowledge)
-      - I need [tech support](knowledge)
   - intent: create_ticket
     examples: |
       - I want to create a ticket
       - I want to talk with the staff
       - I want to talk with a human
       - How can I talk to a staff
+      - Help me write a ticket
