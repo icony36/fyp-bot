@@ -1,13 +1,31 @@
 version: "3.0"
+# services:
+#   rasa:
+#     image: rasa/rasa:3.6.12-full
+#     ports:
+#       - 5005:5005
+#     volumes:
+#       - ./:/app
+#     command:
+#       - run
+#   app:
+#     image: <image:tag>
+#     expose: 5055
 services:
   rasa:
-    image: rasa/rasa:3.6.12-full
-    ports:
-      - 5005:5005
+    container_name: "rasa_server"
+    user: root
+    build:
+      context: .
     volumes:
-      - ./:/app
-    command:
-      - run
-  app:
-    image: <image:tag>
-    expose: 5055
+      - "./:/app"
+    ports:
+      - "5005:5005"
+  action_server:
+    container_name: "action_server"
+    build:
+      context: actions
+    volumes:
+      - ./actions:/app/actions
+      - ./data:/app/data
+    ports:
