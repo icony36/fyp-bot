@@ -1,17 +1,37 @@
+# version: "3.0"
+# services:
+#   rasa:
+#     image: rasa/rasa:3.6.12-full
+#     restart: always
+#     ports:
+#       - 5005:5005
+#     volumes:
+#       - ./:/app
+#     command:
+#       - run
+
+#   actions:
+#     image: rasa/rasa-sdk:latest
+#     restart: always
+#     volumes:
+#       - ./app/actions:/app/actions
+#     ports:
+#       - 5055
 version: "3.0"
 services:
   rasa:
-    image: rasa/rasa:3.6.12-full
-    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - 5005:5005
     volumes:
       - ./:/app
-    command:
-      - run
 
   actions:
-    image: rasa/rasa-sdk:latest
+    build:
+      context: .
+      dockerfile: actions/Dockerfile
     restart: always
     volumes:
       - ./app/actions:/app/actions

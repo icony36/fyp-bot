@@ -1,0 +1,143 @@
+2024-01-17 13:18:39,570 [DEBUG]  Available web server routes: 
+/conversations/<conversation_id:path>/messages     POST                           add_message
+/conversations/<conversation_id:path>/tracker/events POST                           append_events
+/webhooks/rasa                                     GET                            custom_webhook_RasaChatInput.health
+/webhooks/rasa/webhook                             POST                           custom_webhook_RasaChatInput.receive
+/webhooks/rest                                     GET                            custom_webhook_RestInput.health
+/webhooks/rest/webhook                             POST                           custom_webhook_RestInput.receive
+/model/test/intents                                POST                           evaluate_intents
+/model/test/stories                                POST                           evaluate_stories
+/conversations/<conversation_id:path>/execute      POST                           execute_action
+/domain                                            GET                            get_domain
+/                                                  GET                            hello
+/model                                             PUT                            load_model
+/model/parse                                       POST                           parse
+/conversations/<conversation_id:path>/predict      POST                           predict
+/conversations/<conversation_id:path>/tracker/events PUT                            replace_events
+/conversations/<conversation_id:path>/story        GET                            retrieve_story
+/conversations/<conversation_id:path>/tracker      GET                            retrieve_tracker
+/status                                            GET                            status
+/model/predict                                     POST                           tracker_predict
+/model/train                                       POST                           train
+/conversations/<conversation_id:path>/trigger_intent POST                           trigger_intent
+/model                                             DELETE                         unload_model
+/version                                           GET                            version
+2024-01-17 13:18:39,574 [INFO ]  Starting Rasa server on http://0.0.0.0:5005
+2024-01-17 13:18:39,574 [DEBUG]  Using the default number of Sanic workers (1).
+2024-01-17 13:18:39,957 [DEBUG]  Starting new HTTPS connection (1): api.segment.io:443
+2024-01-17 13:18:40,836 [DEBUG]  https://api.segment.io:443 "POST /v1/track HTTP/1.1" 200 21
+2024-01-17 13:18:40,867 [DEBUG]  Connected to InMemoryTrackerStore.
+2024-01-17 13:18:40,868 [DEBUG]  Connected to lock store 'InMemoryLockStore'.
+2024-01-17 13:18:40,869 [DEBUG]  Instantiated NLG to 'TemplatedNaturalLanguageGenerator'.
+2024-01-17 13:18:40,870 [INFO ]  Loading model /app/models/20240117-130154-interior-roadster.tar.gz...
+2024-01-17 13:18:41,192 [DEBUG]  Extracted model to '/tmp/tmpddq0rejy'.
+2024-01-17 13:18:41,195 [DEBUG]  Node 'nlu_message_converter' loading 'NLUMessageConverter.load' and kwargs: '{}'.
+2024-01-17 13:18:41,196 [DEBUG]  Node 'run_WhitespaceTokenizer0' loading 'WhitespaceTokenizer.load' and kwargs: '{}'.
+2024-01-17 13:18:41,198 [DEBUG]  Node 'run_RegexFeaturizer1' loading 'RegexFeaturizer.load' and kwargs: '{}'.
+2024-01-17 13:18:41,198 [DEBUG]  Resource 'train_RegexFeaturizer1' was requested for reading.
+2024-01-17 13:18:41,199 [DEBUG]  Node 'run_LexicalSyntacticFeaturizer2' loading 'LexicalSyntacticFeaturizer.load' and kwargs: '{}'.
+2024-01-17 13:18:41,199 [DEBUG]  Resource 'train_LexicalSyntacticFeaturizer2' was requested for reading.
+2024-01-17 13:18:41,201 [DEBUG]  Node 'run_CountVectorsFeaturizer3' loading 'CountVectorsFeaturizer.load' and kwargs: '{}'.
+2024-01-17 13:18:41,202 [DEBUG]  Resource 'train_CountVectorsFeaturizer3' was requested for reading.
+2024-01-17 13:18:41,203 [DEBUG]  Node 'run_CountVectorsFeaturizer4' loading 'CountVectorsFeaturizer.load' and kwargs: '{}'.
+2024-01-17 13:18:41,203 [DEBUG]  Resource 'train_CountVectorsFeaturizer4' was requested for reading.
+2024-01-17 13:18:41,206 [DEBUG]  Node 'run_DIETClassifier5' loading 'DIETClassifier.load' and kwargs: '{}'.
+2024-01-17 13:18:41,206 [DEBUG]  Resource 'train_DIETClassifier5' was requested for reading.
+2024-01-17 13:18:41,208 [DEBUG]  Loading the model from /tmp/tmpipfm1gix/train_DIETClassifier5/DIETClassifier.tf_model with finetune_mode=False...
+2024-01-17 13:18:41,283 [DEBUG]  Following metrics will be logged during training: 
+2024-01-17 13:18:41,283 [DEBUG]    t_loss (total loss)
+2024-01-17 13:18:41,284 [DEBUG]    i_acc (intent acc)
+2024-01-17 13:18:41,284 [DEBUG]    i_loss (intent loss)
+2024-01-17 13:18:41,285 [DEBUG]    e_f1 (entity f1)
+2024-01-17 13:18:41,285 [DEBUG]    e_loss (entity loss)
+2024-01-17 13:18:59,474 [DEBUG]  Finished loading the model.
+2024-01-17 13:18:59,475 [DEBUG]  Node 'run_EntitySynonymMapper6' loading 'EntitySynonymMapper.load' and kwargs: '{}'.
+2024-01-17 13:18:59,476 [DEBUG]  Resource 'train_EntitySynonymMapper6' was requested for reading.
+2024-01-17 13:18:59,477 [DEBUG]  Node 'run_ResponseSelector7' loading 'ResponseSelector.load' and kwargs: '{}'.
+2024-01-17 13:18:59,477 [DEBUG]  Resource 'train_ResponseSelector7' was requested for reading.
+2024-01-17 13:18:59,478 [DEBUG]  Failed to load ABCMeta from model storage. Resource 'train_ResponseSelector7' doesn't exist.
+2024-01-17 13:18:59,478 [DEBUG]  Resource 'train_ResponseSelector7' was requested for reading.
+2024-01-17 13:18:59,478 [DEBUG]  Failed to load ResponseSelector from model storage. Resource 'train_ResponseSelector7' doesn't exist.
+2024-01-17 13:18:59,479 [DEBUG]  Node 'run_FallbackClassifier8' loading 'FallbackClassifier.load' and kwargs: '{}'.
+2024-01-17 13:18:59,479 [DEBUG]  Node 'run_RegexMessageHandler' loading 'RegexMessageHandler.load' and kwargs: '{}'.
+2024-01-17 13:18:59,480 [DEBUG]  Node 'domain_provider' loading 'DomainProvider.load' and kwargs: '{}'.
+2024-01-17 13:18:59,480 [DEBUG]  Resource 'domain_provider' was requested for reading.
+2024-01-17 13:18:59,589 [DEBUG]  Node 'run_MemoizationPolicy0' loading 'MemoizationPolicy.load' and kwargs: '{}'.
+2024-01-17 13:18:59,590 [DEBUG]  Resource 'train_MemoizationPolicy0' was requested for reading.
+2024-01-17 13:18:59,591 [DEBUG]  Node 'run_RulePolicy1' loading 'RulePolicy.load' and kwargs: '{}'.
+2024-01-17 13:18:59,591 [DEBUG]  Resource 'train_RulePolicy1' was requested for reading.
+2024-01-17 13:18:59,592 [DEBUG]  Node 'run_TEDPolicy2' loading 'TEDPolicy.load' and kwargs: '{}'.
+2024-01-17 13:18:59,593 [DEBUG]  Resource 'train_TEDPolicy2' was requested for reading.
+2024-01-17 13:18:59,594 [DEBUG]  Loading the model from /tmp/tmpipfm1gix/train_TEDPolicy2/ted_policy.tf_model with finetune_mode=False...
+2024-01-17 13:19:06,579 [DEBUG]  Finished loading the model.
+2024-01-17 13:19:06,580 [DEBUG]  Node 'rule_only_data_provider' loading 'RuleOnlyDataProvider.load' and kwargs: '{}'.
+2024-01-17 13:19:06,581 [DEBUG]  Resource 'train_RulePolicy1' was requested for reading.
+2024-01-17 13:19:06,581 [DEBUG]  Node 'select_prediction' loading 'DefaultPolicyPredictionEnsemble.load' and kwargs: '{}'.
+2024-01-17 13:19:06,585 [INFO ]  Rasa server is up and running.
+2024-01-17 13:19:06,587 [INFO ]  Enabling coroutine debugging. Loop id 94825743795104.
+2024-01-17 13:19:24,101 [DEBUG]  Issuing ticket for conversation '656da7947a00403f4f4d269f'.
+2024-01-17 13:19:24,102 [DEBUG]  Acquiring lock for conversation '656da7947a00403f4f4d269f'.
+2024-01-17 13:19:24,102 [DEBUG]  Acquired lock for conversation '656da7947a00403f4f4d269f'.
+2024-01-17 13:19:24,103 [DEBUG]  Could not find tracker for conversation ID '656da7947a00403f4f4d269f'.
+2024-01-17 13:19:24,103 [DEBUG]  No event broker configured. Skipping streaming events.
+2024-01-17 13:19:24,104 [DEBUG]  Starting a new session for conversation ID '656da7947a00403f4f4d269f'.
+2024-01-17 13:19:24,106 [DEBUG]  {"prediction_events": [], "event": "processor.actions.policy_prediction", "level": "debug"}
+2024-01-17 13:19:24,106 [DEBUG]  {"action_name": "action_session_start", "rasa_events": ["<rasa.shared.core.events.SessionStarted object at 0x7f44ad7a3640>", "ActionExecuted(action: action_listen, policy: None, confidence: None)"], "event": "processor.actions.log", "level": "debug"}
+2024-01-17 13:19:24,107 [DEBUG]  {"slot_values": "\tticket_subject: None\n\tticket_detail: None\n\trequested_slot: None\n\tsession_started_metadata: None", "event": "processor.slots.log", "level": "debug"}
+2024-01-17 13:19:24,107 [DEBUG]  Running graph with inputs: {'__message__': [<rasa.core.channels.channel.UserMessage object at 0x7f453454ca30>], '__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x7f45341ff790>}, targets: ['run_RegexMessageHandler'] and ExecutionContext(model_id='cc94e9b9b4934380b7948aa28c8cfcd6', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-01-17 13:19:24,108 [DEBUG]  Node 'nlu_message_converter' running 'NLUMessageConverter.convert_user_message'.
+2024-01-17 13:19:24,108 [DEBUG]  Node 'run_WhitespaceTokenizer0' running 'WhitespaceTokenizer.process'.
+2024-01-17 13:19:24,109 [DEBUG]  Node 'run_RegexFeaturizer1' running 'RegexFeaturizer.process'.
+2024-01-17 13:19:24,110 [DEBUG]  Node 'run_LexicalSyntacticFeaturizer2' running 'LexicalSyntacticFeaturizer.process'.
+2024-01-17 13:19:24,110 [DEBUG]  Node 'run_CountVectorsFeaturizer3' running 'CountVectorsFeaturizer.process'.
+2024-01-17 13:19:24,111 [DEBUG]  Node 'run_CountVectorsFeaturizer4' running 'CountVectorsFeaturizer.process'.
+2024-01-17 13:19:24,112 [DEBUG]  Node 'run_DIETClassifier5' running 'DIETClassifier.process'.
+2024-01-17 13:19:24,317 [DEBUG]  Node 'run_EntitySynonymMapper6' running 'EntitySynonymMapper.process'.
+2024-01-17 13:19:24,318 [DEBUG]  Node 'run_ResponseSelector7' running 'ResponseSelector.process'.
+2024-01-17 13:19:24,318 [DEBUG]  There is no trained model for 'ResponseSelector': The component is either not trained or didn't receive enough training data.
+2024-01-17 13:19:24,319 [DEBUG]  Adding following selector key to message property: default
+2024-01-17 13:19:24,319 [DEBUG]  Node 'run_FallbackClassifier8' running 'FallbackClassifier.process'.
+2024-01-17 13:19:24,320 [DEBUG]  Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-01-17 13:19:24,320 [DEBUG]  Node 'run_RegexMessageHandler' running 'RegexMessageHandler.process'.
+2024-01-17 13:19:24,321 [DEBUG]  {"parse_data_text": "hi", "parse_data_intent": {"name": "greet", "confidence": 1.0}, "parse_data_entities": [], "event": "processor.message.parse", "level": "debug"}
+2024-01-17 13:19:24,322 [DEBUG]  Logged UserUtterance - tracker now has 4 events.
+2024-01-17 13:19:24,322 [DEBUG]  Validating extracted slots: 
+2024-01-17 13:19:24,323 [DEBUG]  {"action_extract_slot": "action_extract_slots", "len_extraction_events": 0, "rasa_events": [], "event": "processor.extract.slots", "level": "debug"}
+2024-01-17 13:19:24,323 [DEBUG]  Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x7f45341ff790>}, targets: ['select_prediction'] and ExecutionContext(model_id='cc94e9b9b4934380b7948aa28c8cfcd6', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-01-17 13:19:24,324 [DEBUG]  Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-01-17 13:19:24,324 [DEBUG]  Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-01-17 13:19:24,325 [DEBUG]  Node 'run_MemoizationPolicy0' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-01-17 13:19:24,325 [DEBUG]  {"tracker_states": [{}, {"user": {"intent": "greet"}, "prev_action": {"action_name": "action_listen"}}], "event": "memoization.predict.actions", "level": "debug"}
+2024-01-17 13:19:24,326 [DEBUG]  There is no memorised next action
+2024-01-17 13:19:24,326 [DEBUG]  Node 'run_RulePolicy1' running 'RulePolicy.predict_action_probabilities'.
+2024-01-17 13:19:24,326 [DEBUG]  {"current_states": "\n[state 1] user text: hi | previous action name: action_listen", "event": "rule_policy.actions.find", "level": "debug"}
+2024-01-17 13:19:24,327 [DEBUG]  There is no applicable rule.
+2024-01-17 13:19:24,327 [DEBUG]  {"current_states": "\n[state 1] user intent: greet | previous action name: action_listen", "event": "rule_policy.actions.find", "level": "debug"}
+2024-01-17 13:19:24,328 [DEBUG]  There is a rule for the next action 'utter_greet'.
+2024-01-17 13:19:24,328 [DEBUG]  Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-01-17 13:19:24,333 [DEBUG]  TED predicted 'utter_ticket_cancel' based on user intent.
+2024-01-17 13:19:24,334 [DEBUG]  Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-01-17 13:19:24,334 [DEBUG]  Made prediction using user intent.
+2024-01-17 13:19:24,335 [DEBUG]  Added `DefinePrevUserUtteredFeaturization(False)` event.
+2024-01-17 13:19:24,335 [DEBUG]  Predicted next action using RulePolicy.
+2024-01-17 13:19:24,335 [DEBUG]  Predicted next action 'utter_greet' with confidence 1.00.
+2024-01-17 13:19:24,336 [DEBUG]  {"prediction_events": ["<rasa.shared.core.events.DefinePrevUserUtteredFeaturization object at 0x7f44ad7a3640>"], "event": "processor.actions.policy_prediction", "level": "debug"}
+2024-01-17 13:19:24,337 [DEBUG]  {"action_name": "utter_greet", "rasa_events": ["BotUttered('Hi! Welcome to the student service bot. What do you need help with?', {\"elements\": null, \"quick_replies\": null, \"buttons\": null, \"attachment\": null, \"image\": null, \"custom\": null}, {\"utter_action\": \"utter_greet\"}, 1705497564.3364654)"], "event": "processor.actions.log", "level": "debug"}
+2024-01-17 13:19:24,338 [DEBUG]  Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x7f45341ff790>}, targets: ['select_prediction'] and ExecutionContext(model_id='cc94e9b9b4934380b7948aa28c8cfcd6', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-01-17 13:19:24,338 [DEBUG]  Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-01-17 13:19:24,339 [DEBUG]  Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-01-17 13:19:24,339 [DEBUG]  Node 'run_MemoizationPolicy0' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-01-17 13:19:24,340 [DEBUG]  {"tracker_states": [{}, {"prev_action": {"action_name": "action_listen"}}], "event": "memoization.predict.actions", "level": "debug"}
+2024-01-17 13:19:24,340 [DEBUG]  There is no memorised next action
+2024-01-17 13:19:24,341 [DEBUG]  Node 'run_RulePolicy1' running 'RulePolicy.predict_action_probabilities'.
+2024-01-17 13:19:24,341 [DEBUG]  {"current_states": "\n[state 1] user intent: greet | previous action name: action_listen\n[state 2] user intent: greet | previous action name: utter_greet", "event": "rule_policy.actions.find", "level": "debug"}
+2024-01-17 13:19:24,342 [DEBUG]  There is a rule for the next action 'action_listen'.
+2024-01-17 13:19:24,342 [DEBUG]  Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-01-17 13:19:24,347 [DEBUG]  TED predicted 'action_listen' based on user intent.
+2024-01-17 13:19:24,347 [DEBUG]  Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-01-17 13:19:24,348 [DEBUG]  Predicted next action using RulePolicy.
+2024-01-17 13:19:24,348 [DEBUG]  Predicted next action 'action_listen' with confidence 1.00.
+2024-01-17 13:19:24,349 [DEBUG]  {"prediction_events": [], "event": "processor.actions.policy_prediction", "level": "debug"}
+2024-01-17 13:19:24,349 [DEBUG]  {"action_name": "action_listen", "rasa_events": [], "event": "processor.actions.log", "level": "debug"}
+2024-01-17 13:19:24,350 [DEBUG]  No event broker configured. Skipping streaming events.
+2024-01-17 13:19:24,350 [DEBUG]  Deleted lock for conversation '656da7947a00403f4f4d269f'.
