@@ -9,9 +9,6 @@ services:
       - ./:/app
     command:
       - run
-  app:
-    image: <image:tag>
-    expose: 5055
 
   actions:
     image: rasa/rasa-sdk:latest
