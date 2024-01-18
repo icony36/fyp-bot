@@ -2,6 +2,7 @@ FROM rasa/rasa-sdk:3.6.2
 WORKDIR /app
 COPY actions/requirements.txt requirements.txt
 USER root
+RUN pip install --no-cache-dir --upgrade pip
 RUN pip install --verbose -r requirements.txt
 EXPOSE 5055
 USER 1001
