@@ -1,26 +1,26 @@
-version: "3.6"
-services:
-  rasa:
-    image: rasa-bot:latest
-    build:
-      context: .
-      dockerfile: Dockerfile
-    restart: always
-    ports:
-      - 5005:5005
-    volumes:
-      - ./:/app
+# version: "3.6"
+# services:
+#   rasa:
+#     image: rasa-bot:latest
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     restart: always
+#     ports:
+#       - 5005:5005
+#     volumes:
+#       - ./:/app
 
-  actions:
-    image: rasa-bot:latest
-    build:
-      context: .
-      dockerfile: actions/Dockerfile
-    restart: always
-    volumes:
-      - ./app/actions:/app/actions
-    ports:
-      - 5055
+#   actions:
+#     image: rasa-bot:latest
+#     build:
+#       context: .
+#       dockerfile: actions/Dockerfile
+#     restart: always
+#     volumes:
+#       - ./app/actions:/app/actions
+#     ports:
+#       - 5055
 # version: "3.6"
 # services:
 #   rasa-server:
@@ -58,3 +58,32 @@ services:
 #     driver: bridge
 #     driver_opts:
 #       com.docker.network.enable_ipv6: "true"
+
+version: "3"
+services:
+  nginx:
+    container_name: nginx
+    image: nginx
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./certs:/etc/letsencrypt/live/iantan.site
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - rasa
+      - action_server
+  rasa:
+    container_name: "rasa_server"
+    build:
+      context: backend
+    ports:
+      - "5005:5005"
+  action_server:
+    container_name: "action_server"
+    build:
+      context: actions
+    volumes:
+      - ./actions:/app/actions
+    ports:
+      - "5055:5055"
