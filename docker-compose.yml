@@ -76,7 +76,7 @@ services:
   rasa:
     container_name: "rasa_server"
     build:
-      context: backend
+      context: .
     ports:
       - "5005:5005"
   action_server:

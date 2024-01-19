@@ -11,12 +11,13 @@ from rasa_sdk.events import UserUtteranceReverted, SlotSet, FollowupAction
 
 import requests
 
-# api_endpoint = "http://localhost:3210/"
-api_endpoint = "https://fyp-server-b4yk.onrender.com/"
+# server_endpoint = "http://localhost:3210/"
+server_endpoint = "https://fyp-server-b4yk.onrender.com/"
 
 load_dotenv()
 
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+# genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+genai.configure(api_key="AIzaSyBSKfve9GwoZeFQaQCIK4qiw96nosZk3ac")
 model = genai.GenerativeModel("gemini-pro")
 chat = model.start_chat(history=[])
 
@@ -35,6 +36,7 @@ class ActionDefaultFallback(Action):
             dispatcher.utter_message(response="utter_english_only")
             return [UserUtteranceReverted()]
         
+         
         try:
             reply_text = ""
 
@@ -45,6 +47,8 @@ class ActionDefaultFallback(Action):
             
             dispatcher.utter_message(text=reply_text)
         except Exception as e:
+            print(e)
+            
             dispatcher.utter_message(response="utter_cant_answer")
             print(e)
 
@@ -64,7 +68,7 @@ class ActionGetKnowLedges(Action):
         knowledge = next(tracker.get_latest_entity_values("knowledge"), None)
 
         if knowledge != None:
-            url = f'{api_endpoint}api/knowledges/search?search={knowledge}'
+            url = f'{server_endpoint}api/knowledges/search?search={knowledge}'
             res = requests.get(url)
 
             results = res.json().get('data');
@@ -95,7 +99,7 @@ class SubmitTicketForm(Action):
         }
 
         try:
-            url = f"{api_endpoint}api/tickets"
+            url = f"{server_endpoint}api/tickets"
             res = requests.post(url, json=to_submit)
             res.raise_for_status()
             dispatcher.utter_message(text="The ticket is created!")
