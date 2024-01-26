@@ -6,4 +6,4 @@ requests==2.31.0
 rasa==3.6.12
 rasa-sdk==3.6.2
 python-dotenv==1.0.0
-google-generativeai
+google-generativeai==0.3.2
