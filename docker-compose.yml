@@ -96,6 +96,7 @@ services:
       context: .
     ports:
       - "5005:5005"
+    network_mode: bridge
   action_server:
     container_name: "rasa_action_server"
     build:
@@ -104,3 +105,4 @@ services:
       - ./actions:/app/actions
     ports:
       - "5055:5055"
+    network_mode: bridge
