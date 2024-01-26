@@ -21,6 +21,7 @@
 #       - ./app/actions:/app/actions
 #     ports:
 #       - 5055
+
 # version: "3.6"
 # services:
 #   rasa-server:
@@ -90,7 +91,7 @@
 
 version: "3"
 services:
-  rasa:
+  rasa_server:
     container_name: "rasa_server"
     build:
       context: .
@@ -99,7 +100,7 @@ services:
     ports:
       - "5005:5005"
     network_mode: bridge
-  action_server:
+  rasa_action_server:
     container_name: "rasa_action_server"
     build:
       context: actions
@@ -109,3 +110,5 @@ services:
     ports:
       - "5055:5055"
     network_mode: bridge
+    depends_on:
+      - rasa_server
