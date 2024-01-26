@@ -94,6 +94,8 @@ services:
     container_name: "rasa_server"
     build:
       context: .
+    volumes:
+      - "./:/app"
     ports:
       - "5005:5005"
     network_mode: bridge
@@ -103,6 +105,7 @@ services:
       context: actions
     volumes:
       - ./actions:/app/actions
+      - ./data:/app/data
     ports:
       - "5055:5055"
     network_mode: bridge
