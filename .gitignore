@@ -7,3 +7,5 @@ models/*
 out.log
 
 certs
+
+.env

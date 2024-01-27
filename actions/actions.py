@@ -11,13 +11,15 @@ from rasa_sdk.events import UserUtteranceReverted, SlotSet, FollowupAction
 
 import requests
 
-# server_endpoint = "http://localhost:3210/"
-server_endpoint = "https://fyp-server-b4yk.onrender.com/"
-
 load_dotenv()
 
-# genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
-genai.configure(api_key="AIzaSyBSKfve9GwoZeFQaQCIK4qiw96nosZk3ac")
+# server_endpoint = "http://localhost:3210/"
+# server_endpoint = "https://fyp-server-b4yk.onrender.com/"
+server_endpoint = os.getenv("SERVER_ENDPOINT")
+google_api_key = os.getenv("GOOGLE_API_KEY")
+
+# genai.configure(api_key="AIzaSyBSKfve9GwoZeFQaQCIK4qiw96nosZk3ac")
+genai.configure(api_key=google_api_key)
 model = genai.GenerativeModel("gemini-pro")
 chat = model.start_chat(history=[])
 
@@ -36,7 +38,9 @@ class ActionDefaultFallback(Action):
             dispatcher.utter_message(response="utter_english_only")
             return [UserUtteranceReverted()]
         
-         
+        print(server_endpoint)
+        print(google_api_key)
+
         try:
             reply_text = ""
 
@@ -50,7 +54,6 @@ class ActionDefaultFallback(Action):
             print(e)
             
             dispatcher.utter_message(response="utter_cant_answer")
-            print(e)
 
 
         return [UserUtteranceReverted()]
