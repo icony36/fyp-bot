@@ -99,7 +99,8 @@ services:
       - "./:/app"
     ports:
       - "5005:5005"
-    network_mode: bridge
+    expose:
+      - "5005"
   rasa_action_server:
     container_name: "rasa_action_server"
     build:
@@ -109,6 +110,7 @@ services:
       - ./data:/app/data
     ports:
       - "5055:5055"
-    network_mode: bridge
+    expose:
+      - "5055"
     depends_on:
       - rasa_server
