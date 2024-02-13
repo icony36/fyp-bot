@@ -106,7 +106,7 @@ class SubmitTicketForm(Action):
             res = requests.post(url, json=to_submit)
             res.raise_for_status()
             dispatcher.utter_message(text="The ticket is created!")
-            dispatcher.utter_message(text="You may check your ticket in your profile page.")
+            dispatcher.utter_message(text="You may check your ticket in your tickets page.")
         except requests.exceptions.HTTPError as err:
             print(err)
             

@@ -51,6 +51,7 @@ nlu:
       - :)
       - yo
       - whatssup
+
   - intent: goodbye
     examples: |
       - see you
