@@ -10,4 +10,4 @@ certs
 
 .env
 
-.rasa
+.rasa/*
