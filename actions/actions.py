@@ -34,9 +34,9 @@ class ActionDefaultFallback(Action):
         
         text = tracker.latest_message['text']
         
-        if (detect(text) != "en"):
-            dispatcher.utter_message(response="utter_english_only")
-            return [UserUtteranceReverted()]
+        # if (detect(text) != "en"):
+        #     dispatcher.utter_message(response="utter_english_only")
+        #     return [UserUtteranceReverted()]
         
         print(server_endpoint)
         print(google_api_key)
