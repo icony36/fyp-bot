@@ -105,6 +105,9 @@ services:
     container_name: "rasa_action_server"
     build:
       context: actions
+      args:
+        - GOOGLE_API_KEY=AIzaSyAEihM76eVmnqFnV6xDg4N590NDONtCLxQ
+        - SERVER_ENDPOINT=https://fyp-server-b4yk.onrender.com/
     volumes:
       - ./actions:/app/actions
       - ./data:/app/data
