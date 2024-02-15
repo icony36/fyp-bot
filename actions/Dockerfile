@@ -1,5 +1,7 @@
 FROM rasa/rasa-sdk:3.6.2
 WORKDIR /app
+ENV GOOGLE_API_KEY=AIzaSyAEihM76eVmnqFnV6xDg4N590NDONtCLxQ
+ENV SERVER_ENDPOINT=http://localhost:3210/
 COPY ./requirements.txt ./
 #copy everything in ./actions directory (your custom actions code) to /app/actions in container
 COPY ./ /app/actions
