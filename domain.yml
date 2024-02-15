@@ -15,9 +15,6 @@ intents:
   - ask_direction
 entities:
   - knowledge
-templates:
-  utter_map:
-    - text: { link }
 slots:
   ticket_subject:
     type: text
@@ -127,8 +124,6 @@ responses:
     - text: I am a chatbot. I'm here to provide information, answer questions, and assist with a wide range of topics to the best of my abilities. If you have any questions or need assistance, feel free to ask!
     - text: I am a chatbot. I'm here to provide information and assist with a variety of inquiries to the best of my ability. How can I help you today?
     - text: I am a chatbot. I'm here to help and provide information to the best of my ability. If you have any questions, feel free to ask!
-  utter_here_joke:
-    - text: "Here is a joke for you."
 
   utter_cant_answer:
     - text: "I'm afraid I can't assist with that inquiry; it doesn't align with my guidelines."
