@@ -21,17 +21,6 @@ rules:
       - intent: bot_challenge
       - action: utter_iamabot
 
-  - rule: ask for joke path
-    steps:
-      - intent: ask_joke
-      - action: utter_here_joke
-      - action: utter_joke
-
-  - rule: feeling stess path
-    steps:
-      - intent: feel_stressed
-      - action: utter_overwhelmed
-
   - rule: ask for services path
     steps:
       - intent: ask_services
@@ -41,6 +30,16 @@ rules:
     steps:
       - intent: nlu_fallback
       - action: action_default_fallback
+
+  - rule: pass to google
+    steps:
+      - intent: ask_google
+      - action: action_default_fallback
+
+  - rule: give direction
+    steps:
+      - intent: ask_direction
+      - action: action_map_direction
 
   # - rule: Activate ticket form
   #   steps:

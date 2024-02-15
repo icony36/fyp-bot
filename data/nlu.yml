@@ -200,41 +200,6 @@ nlu:
       - r u a person or not?
       - are you a human or a machine?
       - am I talking to a human or a AI?
-  - intent: ask_joke
-    examples: |
-      - Tell me a joke.
-      - I need a joke.
-      - I am sad, tell me a joke.
-      - Joke?
-      - I need joke.
-      - Tell joke, please.
-      - Can you share joke?
-      - Want joke.
-      - I like joke.
-      - Joke, please!
-      - I want to hear joke.
-      - Please tell joke.
-      - Give me joke.
-      - Tell funny story.
-      - Share funny joke.
-      - Joke for me?
-      - Can you joke?
-      - I need funny joke.
-
-  - intent: feel_stressed
-    examples: |
-      - Hi, I’m feeling stressed out
-      - I'm stressed
-      - Feeling overwhelmed
-      - Stress is getting to me
-      - Feeling anxious
-      - I'm under a lot of pressure
-      - It's all too much right now
-      - Feeling tense
-      - I'm really stressed
-      - Feeling a bit frazzled
-      - I'm getting worked up
-      - Feeling strained
 
   - intent: ask_services
     examples: |
@@ -282,3 +247,51 @@ nlu:
       - I want to talk with a human
       - How can I talk to a staff
       - Help me write a ticket
+
+  - intent: ask_google
+    examples: |
+      - pass this question to Gemini
+      - transfer this query to Gemini
+      - forward to Gemini for clarification
+      - I want to talk with Gemini
+      - connect me with Gemini
+      - can you help me speak with Gemini?
+      - please get Gemini's input on this
+      - initiate a conversation with Gemini
+      - direct this to Gemini for assistance
+      - I am sad
+      - feeling down
+      - experiencing sadness
+      - I'm feeling blue
+      - feeling a bit low
+      - help me with mathematics
+      - I need assistance with math
+      - can you assist me with mathematical problems?
+      - struggling with a math concept
+      - could you help me understand this math problem?
+      - I have some math questions
+      - I need help with programming
+      - Can you assist me with coding?
+      - struggling with a programming assignment
+      - I have a coding problem to solve
+      - I'm having trouble with my computer
+      - need assistance with troubleshooting
+      - I have a problem with my internet connection
+
+  - intent: ask_direction
+    examples: |
+      - where is my lecture room
+      - how to go to A206
+      - where is my class
+      - where is the student service
+      - where is the atm
+      - how to go to the bus stop
+      - direct me
+      - how do I get to the library
+      - where can I find the cafeteria
+      - how do I reach the gym
+      - where is the nearest restroom
+      - how to get to the parking lot
+      - where can I find the nearest elevator
+      - how to reach the faculty office
+      - where is the main entrance

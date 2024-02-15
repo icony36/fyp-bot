@@ -11,10 +11,13 @@ intents:
   - nlu_fallback
   - stop
   - thank
-  - ask_joke
-  - feel_stressed
+  - ask_google
+  - ask_direction
 entities:
   - knowledge
+templates:
+  utter_map:
+    - text: { link }
 slots:
   ticket_subject:
     type: text
@@ -127,49 +130,6 @@ responses:
   utter_here_joke:
     - text: "Here is a joke for you."
 
-  utter_joke:
-    - text: Why don't scientists trust atoms? Because they make up everything!
-    - text: I only know 25 letters of the alphabet. I don't know y.
-    - text: How do you organize a space party? You planet!
-    - text: What's a skeleton's least favorite room in the house? The living room!
-    - text: Did you hear about the mathematician who's afraid of negative numbers? He'll stop at nothing to avoid them!
-    - text: Why don't seagulls fly over the bay? Because then they'd be bagels!
-    - text: What's orange and sounds like a parrot? A carrot!
-    - text: I told my wife she should embrace her mistakes. She gave me a hug.
-    - text: What do you call fake spaghetti? An impasta!
-    - text: How do you catch a squirrel? Climb a tree and act like a nut!
-    - text: Did you hear about the cheese factory explosion? There was nothing left but d- text:brie.
-    - text: Why did the scarecrow win an award? Because he was outstanding in his field!
-    - text: What did the grape do when it got stepped on? Nothing, but it let out a little wine!
-    - text: I used to play piano by ear, but now I use my hands and fingers.
-    - text: How do you organize a fantastic space party? You planet!
-    - text: Why did the coffee file a police report? It got mugged.
-    - text: Why couldn't the bicycle stand up by itself? Because it was tw- text:tired!
-    - text: What did the janitor say when he jumped out of the closet? Supplies!
-    - text: I told my wife she should embrace her mistakes. She gave me a hug.
-    - text: Why did the golfer bring two pairs of pants? In case he got a hole in one!
-  utter_overwhelmed:
-    - text: I'm sorry to hear that you're feeling overwhelmed with tasks. It's a challenging situation, but you can take steps to manage it.
-    - text: Break down your tasks into smaller, more manageable steps. Tackling one thing at a time can make it less overwhelming.
-    - text: Prioritize your tasks based on urgency and importance. Focus on what needs to be done first.
-    - text: Consider asking for help or delegating tasks if possible. You don't have to do everything on your own.
-    - text: Take short breaks to clear your mind. Even a few minutes of deep breathing or stretching can make a difference.
-    - text: Create a to-do list to help you organize your tasks and track your progress.
-    - text: Set realistic expectations for yourself. It's okay if you can't do everything at once.
-    - text: Communicate with others about your workload. They may be able to offer support or adjust expectations.
-    - text: Practice self-compassion. Understand that it's okay not to be perfect, and everyone experiences overwhelm at times.
-    - text: Break your day into focused work sessions with short breaks in between to maintain productivity.
-    - text: Identify any unnecessary tasks that can be postponed or eliminated to lighten your load.
-    - text: Consider using productivity tools or apps to help you stay organized and on track.
-    - text: Celebrate small victories along the way. Recognizing your achievements, no matter how small, can boost your mood.
-    - text: Reach out to friends, family, or colleagues for encouragement and moral support.
-    - text: Take care of your physical well-being by getting enough sleep, eating nourishing meals, and staying hydrated.
-    - text: If the workload is consistently overwhelming, discuss it with your supervisor or manager to explore potential solutions.
-    - text: Practice mindfulness or meditation to help calm your mind and reduce stress.
-    - text: Focus on what you can control and let go of things beyond your control.
-    - text: Consider setting boundaries to protect your time and prevent additional tasks from piling up.
-    - text: Remember that it's okay to ask for help, whether it's from colleagues, friends, or professionals. Taking care of your mental health is crucial.
-
   utter_cant_answer:
     - text: "I'm afraid I can't assist with that inquiry; it doesn't align with my guidelines."
     - text: "This request falls outside the scope of what I can address, sorry."
@@ -233,6 +193,7 @@ responses:
     - text: Lost me there, rephrase, please?
     - text: Didn't get it, rephrase that for me?
     - text: Say that in a different way, please?
+
   utter_default_fallback:
     - text: Sorry I can't help you with that. You can ask me something related to academic guidance, enrollment support, or counseling.
     - text: Sorry, I'm not able to assist with that. Feel free to ask about academic guidance, enrollment support, or counseling.
@@ -278,6 +239,7 @@ actions:
   - utter_ask_ticket_detail
   - submit_ticket_form
   - cancel_ticket_form
+  - action_map_direction
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

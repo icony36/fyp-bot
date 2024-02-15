@@ -23,6 +23,21 @@ genai.configure(api_key=google_api_key)
 model = genai.GenerativeModel("gemini-pro")
 chat = model.start_chat(history=[])
 
+def ask_google(dispatcher, text):
+    try:
+        reply_text = ""
+
+        responses = chat.send_message(text, stream=True)
+
+        for chunk in responses:
+            reply_text += chunk.text
+        
+        dispatcher.utter_message(text=reply_text)
+    except Exception as e:
+        print(e)
+        
+        dispatcher.utter_message(response="utter_cant_answer")
+
 class ActionDefaultFallback(Action):
 
     def name(self) -> Text:
@@ -41,19 +56,21 @@ class ActionDefaultFallback(Action):
         print(server_endpoint)
         print(google_api_key)
 
-        try:
-            reply_text = ""
+        ask_google(dispatcher, text)
 
-            responses = chat.send_message(text, stream=True)
+        # try:
+        #     reply_text = ""
 
-            for chunk in responses:
-                reply_text += chunk.text
+        #     responses = chat.send_message(text, stream=True)
+
+        #     for chunk in responses:
+        #         reply_text += chunk.text
             
-            dispatcher.utter_message(text=reply_text)
-        except Exception as e:
-            print(e)
+        #     dispatcher.utter_message(text=reply_text)
+        # except Exception as e:
+        #     print(e)
             
-            dispatcher.utter_message(response="utter_cant_answer")
+        #     dispatcher.utter_message(response="utter_cant_answer")
 
 
         return [UserUtteranceReverted()]
@@ -80,7 +97,7 @@ class ActionGetKnowLedges(Action):
                 dispatcher.utter_message(text=f"Here is the information regarding {knowledge}.\n")
                 dispatcher.utter_message(text=results[0]['description'])
             else:
-                dispatcher.utter_message(text="I can't find the information of it. Can you try something else?")
+               ask_google(dispatcher, tracker.latest_message['text'])
         else:
             return [FollowupAction('action_default_fallback')]      
 
@@ -130,3 +147,20 @@ class CancelTicketForm(Action):
 
 
         return [SlotSet("ticket_subject", None), SlotSet("ticket_detail", None)]
+    
+class ActionMapDirection(Action):
+
+    def name(self) -> Text:
+        return "action_map_direction"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        link = "https://map-viewer.situm.com/?apikey=b48aeb58c2a605532de776ee5dedfefc778ca5b242f3d1c56986044c2baddb93&domain=&lng=en&buildingid=15400&floorid=49585"
+     
+        dispatcher.utter_message(text="Sure, you may use the following link to get the direction to your destination.")
+        dispatcher.utter_message(text=link)
+        dispatcher.utter_message(text="Set your starting point and destination to get the direction.")
+        
+        return []
