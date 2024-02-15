@@ -8,6 +8,6 @@ out.log
 
 certs
 
-.env
+# .env
 
 .rasa/*
