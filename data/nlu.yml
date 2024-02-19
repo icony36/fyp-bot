@@ -228,9 +228,10 @@ nlu:
       - What are the [academic support resources](knowledge) available on campus?
       - Where can I find [internship](knowledge) opportunities related to my field of study?
       - What are the [transportation options](knowledge) for getting to and from campus?
-      - How do I access campus [Wi-Fi](knowledge)?
+      - How do I access campus [wifi](knowledge)?
+      - How do I access campus [wi-fi](knowledge)?
       - Can you provide information about [study abroad](knowledge) programs offered by the university?
-      - What [events and activities](knowledge) are happening on campus this week?
+      - What [events](knowledge) and activities are happening on campus this week?
       - Where can I find [tutoring services](knowledge) for my courses?
       - What [academic and career workshops](knowledge) are offered by the university?
       - How can I [request academic accommodations](knowledge) for disabilities?
@@ -348,6 +349,33 @@ nlu:
       - Can you assist me in locating my student identification?
       - I'm looking for information on my student ID. Can you help?
 
+  - intent: ask_course
+    examples: |
+      - what is my course?
+      - can you provide me with my course?
+      - what course am I currently studying?
+      - what course am I taking?
+      - what course am I studying?
+      - tell me about my course
+      - which course am I enrolled in?
+      - can you remind me of my course?
+      - please tell me my course
+      - I forgot, what course am I in?
+      - could you inform me about my course?
+
+  - intent: ask_enrollments
+    examples: |
+      - what modules am I taking?
+      - what is my enrollment status?
+      - what are my enrolled modules?
+      - can you list the modules I am taking?
+      - which modules have I enrolled in?
+      - provide me with details of my enrollments
+      - show me my current module enrollments
+      - give me information about my enrolled modules
+      - please inform me about my module enrollments
+      - could you tell me the modules I have enrolled in?
+
   - intent: get_career_path
     examples: |
       - Could you suggest me a career path for [business admin](course)?
@@ -364,6 +392,9 @@ nlu:
 
   - intent: ask_campus_direction
     examples: |
+      - how to get to sim?
+      - how to get to sim ge?
+      - how to get to sim university?
       - how to go to school?
       - how to go to university?
       - how to go to the campus?

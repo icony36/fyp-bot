@@ -32,7 +32,7 @@ def ask_google(dispatcher, tracker, text):
 
         results = res.json().get('data');
 
-        ask_text = text + f' Just to inform you, I am a {results["course"]} university student and presently situated in Singapore.'
+        ask_text = text + f' Just to inform you, I am a {results["course"]} student in SIM GE Universtiy and presently situated in Singapore.'
 
         responses = chat.send_message(ask_text, stream=True)
 
@@ -152,6 +152,49 @@ class ActionGetStudentId(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
         dispatcher.utter_message(text=f"Your student ID is {tracker.sender_id}.")
+
+        return []
+    
+class ActionGetCourse(Action):
+    def name(self) -> Text:
+        return "action_get_course"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        url = f'{server_endpoint}api/student-profiles/by-user/{tracker.sender_id}'
+        res = requests.get(url)
+
+        results = res.json().get('data');
+
+        dispatcher.utter_message(text=f"Your course is {results['course']}.")
+
+        return []
+    
+class ActionGetEnrollments(Action):
+    def name(self) -> Text:
+        return "action_get_enrollments"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        url = f'{server_endpoint}api/student-profiles/by-user/{tracker.sender_id}'
+        res = requests.get(url)
+
+        results = res.json().get('data');
+
+        enrollments = results["enrollments"]
+
+        reply_text = ""
+
+        for idx, el in enumerate(enrollments):
+            reply_text += el
+            if idx != len(enrollments) - 1:
+                reply_text += ", "
+
+        dispatcher.utter_message(text=f"Your enrolled modules: {reply_text}")
 
         return []
 

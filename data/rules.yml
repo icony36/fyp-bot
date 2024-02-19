@@ -61,6 +61,16 @@ rules:
       - intent: ask_fee
       - action: action_get_fee
 
+  - rule: give course
+    steps:
+      - intent: ask_course
+      - action: action_get_course
+
+  - rule: give enrollments
+    steps:
+      - intent: ask_enrollments
+      - action: action_get_enrollments
+
   - rule: give career path
     steps:
       - intent: ask_career_path
