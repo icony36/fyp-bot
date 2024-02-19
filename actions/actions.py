@@ -27,7 +27,7 @@ def ask_google(dispatcher, text):
     try:
         reply_text = ""
 
-        ask_text = text + " Just to inform you, I am presently situated in Singapore."
+        ask_text = text + " Just to inform you, I am a university student and presently situated in Singapore."
 
         responses = chat.send_message(ask_text, stream=True)
 
