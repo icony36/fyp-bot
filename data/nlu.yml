@@ -354,6 +354,7 @@ nlu:
   - intent: get_career_path
     examples: |
       - Could you suggest me a career path for [business admin](course)?
+      - Can you suggest a career path for [finance and economic](course)?
       - What is the career path for [art](course)?
       - Can you provide guidance on career options related to [bioscience](course)?
       - I'm interested in exploring career paths for [computer science](course). Can you help?

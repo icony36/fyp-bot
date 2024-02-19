@@ -27,7 +27,9 @@ def ask_google(dispatcher, text):
     try:
         reply_text = ""
 
-        responses = chat.send_message(text, stream=True)
+        ask_text = text + " Just to inform you, I am presently situated in Singapore."
+
+        responses = chat.send_message(ask_text, stream=True)
 
         for chunk in responses: 
             new_text = chunk.text.replace("\n\n", "\n \n") 
