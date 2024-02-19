@@ -13,8 +13,15 @@ intents:
   - thank
   - ask_google
   - ask_direction
+  - ask_campus_direction
+  - ask_timetable
+  - ask_fee
+  - ask_career_path
+  - get_career_path
+  - ask_student_id
 entities:
   - knowledge
+  - course
 slots:
   ticket_subject:
     type: text
@@ -235,6 +242,11 @@ actions:
   - submit_ticket_form
   - cancel_ticket_form
   - action_map_direction
+  - action_campus_direction
+  - action_get_timetable
+  - action_get_fee
+  - action_get_career_path
+  - action_get_student_id
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

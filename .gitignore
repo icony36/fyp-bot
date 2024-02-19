@@ -8,8 +8,8 @@ out.log
 
 certs
 
-# .env
 
 .rasa/*
 
 actions/__pycache__/*
+.env

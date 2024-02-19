@@ -41,6 +41,36 @@ rules:
       - intent: ask_direction
       - action: action_map_direction
 
+  - rule: give campus direction
+    steps:
+      - intent: ask_campus_direction
+      - action: action_campus_direction
+
+  - rule: give timetable
+    steps:
+      - intent: ask_timetable
+      - action: action_get_timetable
+
+  - rule: give fee
+    steps:
+      - intent: ask_fee
+      - action: action_get_fee
+
+  - rule: give career path
+    steps:
+      - intent: ask_career_path
+      - action: action_get_career_path
+
+  - rule: give specific career path
+    steps:
+      - intent: get_career_path
+      - action: action_get_career_path
+
+  - rule: give student id
+    steps:
+      - intent: ask_student_id
+      - action: action_get_student_id
+
   # - rule: Activate ticket form
   #   steps:
   #     - intent: create_ticket

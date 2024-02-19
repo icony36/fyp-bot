@@ -240,6 +240,7 @@ nlu:
       - I want to know about [accommodation](knowledge)
       - Where is the [cafeteria](knowledge)
       - I need [tech support](knowledge)
+
   - intent: create_ticket
     examples: |
       - I want to create a ticket
@@ -295,3 +296,89 @@ nlu:
       - where can I find the nearest elevator
       - how to reach the faculty office
       - where is the main entrance
+
+  - intent: ask_timetable
+    examples: |
+      - what is my timetable
+      - can I know my timetable?
+      - how do I access my timetable?
+      - could you provide me with my course schedule?
+      - I'm looking for information on my timetable
+      - where can I check my class timings?
+      - how can I view my schedule for the week?
+      - can you help me locate my timetable?
+      - I need to know my timetable for this semester
+
+  - intent: ask_fee
+    examples: |
+      - what is my fee
+      - how is my fee
+      - where is my fee
+      - what is my outstanding fee
+      - can I know my tuition fee?
+      - how much do I owe in fees?
+      - where can I check my tuition balance?
+      - what is the status of my fee payment?
+      - could you provide me with information about my outstanding fees?
+      - I'm curious about my current tuition fee status
+      - where can I find details about my semester fees?
+      - can you help me understand my financial obligations to the university?
+      - I need information about my fees for this semester
+
+  - intent: ask_career_path
+    examples: |
+      - Could you suggest me a career path?
+      - What is my career path for my course?
+      - What is my career path?
+      - Can you provide guidance on career options related to my field of study?
+      - I'm interested in exploring potential career paths. Where should I start?
+      - How can I plan my career after completing my course?
+      - Can you recommend career paths based on my academic background?
+      - What are the typical career trajectories for students in my program?
+      - I'm unsure about my career direction. Can you offer some advice?
+      - What job opportunities can I expect after graduation in my field?
+
+  - intent: ask_student_id
+    examples: |
+      - What is my student ID?
+      - How can I find out my student ID?
+      - Can you provide me with my student ID?
+      - Where can I locate my student ID?
+      - I need to know my student identification number.
+      - How do I access my student ID?
+      - Could you help me retrieve my student ID?
+      - What is the process for obtaining my student ID?
+      - Can you assist me in locating my student identification?
+      - I'm looking for information on my student ID. Can you help?
+
+  - intent: get_career_path
+    examples: |
+      - Could you suggest me a career path for [business admin](course)?
+      - What is the career path for [art](course)?
+      - Can you provide guidance on career options related to [bioscience](course)?
+      - I'm interested in exploring career paths for [computer science](course). Can you help?
+      - What are the potential career trajectories for [engineering](course) graduates?
+      - Can you recommend career paths for [psychology](course) majors?
+      - I'm curious about the career opportunities for [nursing](course) students. Can you provide information?
+      - What career paths are available for [finance](course) professionals?
+      - How can I plan my career after completing [marketing](course) studies?
+      - Can you provide insights into career paths for [architecture](course) students?
+
+  - intent: ask_campus_direction
+    examples: |
+      - how to go to school?
+      - where is the school?
+      - how to go to university?
+      - how to go to the campus?
+      - where is the campus?
+      - How do I get to the school?
+      - Where is the campus located?
+      - What's the best way to reach the campus?
+      - Can you provide directions to the campus?
+      - I'm not sure how to get to the university. Can you help?
+      - Could you guide me on reaching the campus?
+      - I need directions to the school campus. Can you assist?
+      - What's the nearest transportation option to the campus?
+      - How far is the university from here?
+      - Can you give me directions to the university campus?
+      - What's the easiest way to reach the school?
