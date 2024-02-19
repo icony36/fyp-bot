@@ -367,12 +367,9 @@ nlu:
   - intent: ask_campus_direction
     examples: |
       - how to go to school?
-      - where is the school?
       - how to go to university?
       - how to go to the campus?
-      - where is the campus?
       - How do I get to the school?
-      - Where is the campus located?
       - What's the best way to reach the campus?
       - Can you provide directions to the campus?
       - I'm not sure how to get to the university. Can you help?
@@ -382,3 +379,14 @@ nlu:
       - How far is the university from here?
       - Can you give me directions to the university campus?
       - What's the easiest way to reach the school?
+      - Can you give me directions to the campus from the nearest subway station?
+      - Are there any specific instructions for reaching the campus from the highway?
+
+  - intent: ask_where_is_campus
+    examples: |
+      - where is the school?
+      - where is the campus?
+      - Where is the campus located?
+      - I'm not familiar with the area. Can you tell me where the campus is?
+      - Could you provide information on the location of the university campus?
+      - Can you tell me the address of the school campus?

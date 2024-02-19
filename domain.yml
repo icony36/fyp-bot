@@ -14,6 +14,7 @@ intents:
   - ask_google
   - ask_direction
   - ask_campus_direction
+  - ask_where_is_campus
   - ask_timetable
   - ask_fee
   - ask_career_path
@@ -214,6 +215,10 @@ responses:
     - text: Included in our services are academic advice, enrollment assistance, and counseling. How may I support you?
     - text: Our services encompass academic guidance, enrollment help, and counseling sessions. How can I assist you today?
     - text: We offer a wide range of services from academic support, enrollment guidance to counseling sessions. How can I help you?
+
+  utter_campus_located:
+    - text: The school is located at 461 Clementi Rd, Singapore 599491.
+
   utter_create_ticket:
     - text: Do you want to create ticket to ask the staff directly?
   utter_ask_ticket_subject:

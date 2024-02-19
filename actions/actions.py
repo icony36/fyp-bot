@@ -234,7 +234,7 @@ class ActionMapDirection(Action):
      
         dispatcher.utter_message(text="You may use the following link to get the direction to your destination.")
         dispatcher.utter_message(text=link)
-        dispatcher.utter_message(text="Set your starting point and destination to get the direction.")
+        dispatcher.utter_message(text="You can simply enter your starting point and destination in the directions app and it will calculate the best route for you.")
         
         return []
 
@@ -247,9 +247,13 @@ class ActionCampusDirection(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
 
-        text = tracker.latest_message['text'] + ' SIM GE Singapore'
+        link = "https://www.google.com/maps/dir//SIM+Global+Education+461+Clementi+Rd+Singapore+599491/@1.3294012,103.7761745,15z/"
+        
 
-        dispatcher.utter_message(text='The school is  located at 461 Clementi Rd, Singapore 599491.')
-        ask_google(dispatcher, text)
+        dispatcher.utter_message(response="utter_campus_located")
+        dispatcher.utter_message(text="You may use the following link to get the direction to the school.")
+        dispatcher.utter_message(text=link)
+        dispatcher.utter_message(text="You can simply enter your starting point in the directions app and it will calculate the best route for you. ")
+
 
         return []

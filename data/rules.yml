@@ -46,6 +46,11 @@ rules:
       - intent: ask_campus_direction
       - action: action_campus_direction
 
+  - rule: give campus location
+    steps:
+      - intent: ask_where_is_campus
+      - action: utter_campus_located
+
   - rule: give timetable
     steps:
       - intent: ask_timetable
