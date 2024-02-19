@@ -218,6 +218,8 @@ nlu:
 
   - intent: get_knowledges
     examples: |
+      - How can I make [payment](knowledge)?
+      - How to make [payment](knowledge)?
       - How do I [enroll](knowledge) for classes?
       - How can I [apply for financial aid](knowledge)?
       - Where can I find the [library](knowledge) and its resources?
