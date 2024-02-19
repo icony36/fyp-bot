@@ -23,11 +23,16 @@ genai.configure(api_key=google_api_key)
 model = genai.GenerativeModel("gemini-pro")
 chat = model.start_chat(history=[])
 
-def ask_google(dispatcher, text):
+def ask_google(dispatcher, tracker, text):
     try:
         reply_text = ""
 
-        ask_text = text + " Just to inform you, I am a university student and presently situated in Singapore."
+        url = f'{server_endpoint}api/student-profiles/by-user/{tracker.sender_id}'
+        res = requests.get(url)
+
+        results = res.json().get('data');
+
+        ask_text = text + f' Just to inform you, I am a {results["course"]} university student and presently situated in Singapore.'
 
         responses = chat.send_message(ask_text, stream=True)
 
@@ -59,7 +64,7 @@ class ActionDefaultFallback(Action):
         print(server_endpoint)
         print(google_api_key)
 
-        ask_google(dispatcher, text)
+        ask_google(dispatcher, tracker, text)
 
         return [UserUtteranceReverted()]
 
@@ -110,7 +115,7 @@ class ActionGetFee(Action):
             dispatcher.utter_message(text=f'$ {results["outstandingFee"]}')
             dispatcher.utter_message(text="You may also check your outstanding fee on your profile page.")
         else:
-            dispatcher.utter_message(text="Can't retrieve your student id")
+            dispatcher.utter_message(text="Can't retrieve your student id.")
 
         return []
 
@@ -134,7 +139,7 @@ class ActionGetCareerPath(Action):
         if results is not None and course is None:
             text += f' {results["course"]}'
 
-        ask_google(dispatcher, text)
+        ask_google(dispatcher, tracker, text)
 
         return []
 
@@ -168,11 +173,13 @@ class ActionGetKnowLedges(Action):
 
             results = res.json().get('data');
 
-            if len(results) > 0:
+            if results is not None and len(results) > 0:
                 dispatcher.utter_message(text=f"Here is the information regarding {knowledge}.\n")
-                dispatcher.utter_message(text=results[0]['description'])
+                reply_text = results[0]['description'].replace("\n\n", "\n \n")
+                
+                dispatcher.utter_message(text=reply_text)
             else:
-               ask_google(dispatcher, tracker.latest_message['text'])
+               ask_google(dispatcher, tracker, tracker.latest_message['text'])
         else:
             return [FollowupAction('action_default_fallback')]      
 

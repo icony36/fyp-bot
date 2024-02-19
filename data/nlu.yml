@@ -218,28 +218,25 @@ nlu:
 
   - intent: get_knowledges
     examples: |
-      - What are the [library hours](knowledge)?
-      - How can I [access my grades](knowledge)?
-      - Where can I find information about [student housing](knowledge)?
-      - Tell me about the available [scholarships](knowledge).
-      - Can you help with [course registration](knowledge)?
-      - How do I contact the [career services office](knowledge)?
-      - How can I get involved in [student clubs](knowledge)?
-      - Any advice for [financial aid](knowledge)?
-      - Can you guide me on [study abroad programs](knowledge)?
-      - How to apply for [graduation](knowledge)?
-      - What's the [housing application process](knowledge)?
-      - Where can I find [career development resources](knowledge)?
-      - How can I get [campus event updates](knowledge)?
-      - Can you provide info about [internship opportunities](knowledge)?
-      - How to join the [student government](knowledge)?
-      - What are the available [language courses](knowledge)?
-      - How to access [fitness centers](knowledge) on campus?
-      - Tell me about the [public transportation options](knowledge).
-      - Where can I find [faculty office hours](knowledge)
-      - I want to know about [accommodation](knowledge)
-      - Where is the [cafeteria](knowledge)
-      - I need [tech support](knowledge)
+      - How do I [enroll](knowledge) for classes?
+      - How can I [apply for financial aid](knowledge)?
+      - Where can I find the [library](knowledge) and its resources?
+      - What [clubs and organizations](knowledge) are available on campus?
+      - Where is the [student center](knowledge) located, and what services do they offer?
+      - How do I [schedule an appointment](knowledge) with an academic advisor?
+      - Can you provide information about [career services](knowledge) available to students?
+      - What are the [academic support resources](knowledge) available on campus?
+      - Where can I find [internship](knowledge) opportunities related to my field of study?
+      - What are the [transportation options](knowledge) for getting to and from campus?
+      - How do I access campus [Wi-Fi](knowledge) and computer labs?
+      - Can you provide information about [study abroad](knowledge) programs offered by the university?
+      - What [events and activities](knowledge) are happening on campus this week?
+      - Where can I find [tutoring services](knowledge) for my courses?
+      - What [academic and career workshops](knowledge) are offered by the university?
+      - How can I [request academic accommodations](knowledge) for disabilities?
+      - Where can I find [information about graduation](knowledge) and commencement ceremonies?
+      - How do I [access the gym](knowledge) and recreational facilities on campus?
+      - How do I [report a problem](knowledge) with campus facilities or services?
 
   - intent: create_ticket
     examples: |
