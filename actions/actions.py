@@ -210,6 +210,8 @@ class ActionGetKnowLedges(Action):
 
         knowledge = next(tracker.get_latest_entity_values("knowledge"), None)
 
+        print(knowledge)
+
         if knowledge is not None:
             url = f'{server_endpoint}api/knowledges/search?search={knowledge}'
             res = requests.get(url)
