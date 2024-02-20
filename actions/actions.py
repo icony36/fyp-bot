@@ -37,7 +37,7 @@ def ask_google(dispatcher, tracker, text):
         responses = chat.send_message(ask_text, stream=True)
 
         for chunk in responses: 
-            new_text = chunk.text.replace("\n\n", "\n \n") 
+            new_text = chunk.text.replace("\n\n", "\n \n")
             reply_text += new_text
 
         dispatcher.utter_message(text=reply_text)
