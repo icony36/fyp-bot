@@ -229,7 +229,7 @@ nlu:
       - Can you provide information about [career services](knowledge) available to students?
       - What are the [academic support resources](knowledge) available on campus?
       - Where can I find [internship](knowledge) opportunities related to my field of study?
-      - What are the [transportation](knowledge) for getting to and from campus?
+      - What are the [transportation](knowledge) options to the school?
       - How do I access campus [wifi](knowledge)?
       - How do I access campus [wi-fi](knowledge)?
       - Can you provide information about [study abroad](knowledge) programs offered by the university?
@@ -239,7 +239,7 @@ nlu:
       - How can I request academic [accommodations](knowledge) for disabilities?
       - Where can I find information about [graduation](knowledge) and commencement ceremonies?
       - How do I access the [gym](knowledge) and recreational facilities on campus?
-      - How do I [report](knowledge) a problem with campus facilities or services?
+      - How do I [report](knowledge) a problem to school?
 
   - intent: create_ticket
     examples: |
