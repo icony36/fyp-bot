@@ -86,6 +86,11 @@ rules:
       - intent: ask_student_id
       - action: action_get_student_id
 
+  - rule: give name
+    steps:
+      - intent: ask_name
+      - action: action_get_name
+
   # - rule: Activate ticket form
   #   steps:
   #     - intent: create_ticket

@@ -31,8 +31,9 @@ def ask_google(dispatcher, tracker, text):
         res = requests.get(url)
 
         results = res.json().get('data');
+        user_data = results["studentId"]
 
-        ask_text = text + f' Just to inform you, I am a {results["course"]} student in SIM GE Universtiy and presently situated in Singapore.'
+        ask_text = text + f' Just to inform you, I am {user_data["firstName"]} {user_data["lastName"]}, a {results["course"]} student in SIM GE Universtiy and presently situated in Singapore.'
 
         responses = chat.send_message(ask_text, stream=True)
 
@@ -155,6 +156,24 @@ class ActionGetStudentId(Action):
 
         return []
     
+class ActionGetName(Action):
+    def name(self) -> Text:
+        return "action_get_name"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        url = f'{server_endpoint}api/users/{tracker.sender_id}'
+        res = requests.get(url)
+
+        results = res.json().get('data');
+
+        dispatcher.utter_message(text=f"Your name is {results['firstName']} {results['lastName']}.")
+        dispatcher.utter_message(text="You may also check your name on your profile page.")
+
+        return []
+    
 class ActionGetCourse(Action):
     def name(self) -> Text:
         return "action_get_course"
@@ -169,6 +188,7 @@ class ActionGetCourse(Action):
         results = res.json().get('data');
 
         dispatcher.utter_message(text=f"Your course is {results['course']}.")
+        dispatcher.utter_message(text="You may check your course on your profile page.")
 
         return []
     
@@ -195,6 +215,7 @@ class ActionGetEnrollments(Action):
                 reply_text += ", "
 
         dispatcher.utter_message(text=f"Your enrolled modules: {reply_text}")
+        dispatcher.utter_message(text="You may check your enrolled modules on your profile page.")
 
         return []
 
@@ -250,7 +271,7 @@ class SubmitTicketForm(Action):
             res = requests.post(url, json=to_submit)
             res.raise_for_status()
             dispatcher.utter_message(text="The ticket is created!")
-            dispatcher.utter_message(text="You may check your ticket in your tickets page.")
+            dispatcher.utter_message(text="You may check your ticket on your tickets page.")
         except requests.exceptions.HTTPError as err:
             print(err)
             

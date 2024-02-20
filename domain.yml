@@ -22,6 +22,7 @@ intents:
   - ask_student_id
   - ask_course
   - ask_enrollments
+  - ask_name
 entities:
   - knowledge
   - course
@@ -256,6 +257,7 @@ actions:
   - action_get_student_id
   - action_get_enrollments
   - action_get_course
+  - action_get_name
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

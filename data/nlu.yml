@@ -359,6 +359,37 @@ nlu:
       - Can you assist me in locating my student identification?
       - I'm looking for information on my student ID. Can you help?
 
+  - intent: ask_name
+    examples: |
+      - What is my name?
+      - Do you know my name?
+      - How can I get my name?
+      - Can you provide me with my name?
+      - Tell me my name
+      - I forgot my name, can you remind me?
+      - I need to know my name
+      - My name, can you tell me?
+      - Could you please tell me my name?
+      - Please provide me with my name
+      - What name do you have on record for me?
+      - I'm curious, what's my name?
+      - I'm trying to remember, what's my name again?
+      - Can you confirm my name?
+      - Is my name in your system?
+      - How do I find out my name?
+      - I need to find out my name
+      - Where can I find my name?
+      - My name, do you have it?
+      - Can you help me find my name?
+      - What do you know about my name?
+      - Am I registered under a name?
+      - Am I using my correct name?
+      - Is my name on file?
+      - I need to check my name
+      - What's the name you have for me?
+      - How do I access my name?
+      - Can you assist me with my name?
+
   - intent: ask_course
     examples: |
       - what is my course?
