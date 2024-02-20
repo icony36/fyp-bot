@@ -287,6 +287,8 @@ nlu:
 
   - intent: ask_direction
     examples: |
+      - how to go to my tutorial room
+      - where is my tutor room
       - where is my lecture room
       - how to go to A206
       - where is my class
