@@ -33,7 +33,10 @@ def ask_google(dispatcher, tracker, text):
         results = res.json().get('data');
         user_data = results["studentId"]
 
-        ask_text = text + f' Just to inform you, I am {user_data["firstName"]} {user_data["lastName"]}, a {results["course"]} student in SIM GE Universtiy and presently situated in Singapore.'
+        ask_text = text + f'\nFor your information, I am {user_data["firstName"]} {user_data["lastName"]}, a {results["course"]} student in SIM GE Universtiy Singapore and I am currently situated in Singapore.'
+        # ask_text += " If the question is personal, just use my name and location for the additioanl information."
+
+        print(ask_text)
 
         responses = chat.send_message(ask_text, stream=True)
 
